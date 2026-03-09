@@ -1,36 +1,70 @@
-import Navbar from "./components/Navbar"
-import Footer from "./components/Footer"
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import MentalHealth from "./pages/MentalHealth";
+import PhysicalHealth from "./pages/PhysicalHealth";
+import Login from "./pages/Login";
+import  Account from "./pages/Account";
+import HabitTracker from "./components/HabitTracker";
 
-import Home from "./pages/Home"
-import MentalHealth from "./pages/MentalHealth"
-import PhysicalHealth from "./pages/PhysicalHealth"
-import HabitTracker from "./components/HabitTracker"
+import { Routes, Route, useLocation } from "react-router-dom";
+import ProtectedRoute from "./components/ProtectedRoute";
+import PublicRoute from "./components/PublicRoute";
 
-import { Routes, Route } from "react-router-dom"
+function App() {
+    const location = useLocation();
+  const isLoginPage = location.pathname === "/login";
+  return (
+    <>
+      {!isLoginPage && <Navbar />}
 
-function App(){
+      <Routes>
+        <Route path="/login" element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
 
-return(
+        <Route path="/" element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
 
-<>
+        <Route path="/mental" element={
+            <ProtectedRoute>
+              <MentalHealth />
+            </ProtectedRoute>
+          }
+        />
 
-<Navbar/>
+        <Route path="/physical" element={
+            <ProtectedRoute>
+              <PhysicalHealth />
+            </ProtectedRoute>
+          }
+        />
 
-<Routes>
+        <Route path="/tracker" element={
+            <ProtectedRoute>
+              <HabitTracker />
+            </ProtectedRoute>
+          }
+        />
 
-<Route path="/" element={<Home/>} />
-<Route path="/mental" element={<MentalHealth/>} />
-<Route path="/physical" element={<PhysicalHealth/>} />
-<Route path="/tracker" element={<HabitTracker/>} />
+        <Route path="/account" element={
+            <ProtectedRoute>
+              <Account />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
 
-</Routes>
-
-<Footer/>
-
-</>
-
-)
-
+      {!isLoginPage && <Footer />}
+    </>
+  );
 }
 
-export default App
+export default App;

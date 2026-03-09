@@ -6,23 +6,13 @@ function Navbar() {
       
       <h2 style={styles.logo}>SyncWell</h2>
 
-      <ul style={styles.navLinks}>
-        <li>
-          <Link style={styles.link} to="/">Home</Link>
-        </li>
-
-        <li>
-          <Link style={styles.link} to="/mental">Mental Health</Link>
-        </li>
-
-        <li>
-          <Link style={styles.link} to="/physical">Physical Health</Link>
-        </li>
-
-        <li>
-          <Link style={styles.link} to="/tracker">Habit Tracker</Link>
-        </li>
-      </ul>
+      <div style={{ display: "flex", gap: "20px" }}>
+        <Link to="/">Home</Link>
+        <Link to="/mental">Mental Health</Link>
+        <Link to="/physical">Physical Health</Link>
+        <Link to="/tracker">Habit Tracker</Link>
+        <Link to="/account">Account</Link>
+      </div>
 
     </nav>
   );
@@ -42,19 +32,6 @@ const styles = {
     fontSize: "24px",
     fontWeight: "bold",
     color: "#22c55e",
-  },
-
-  navLinks: {
-    listStyle: "none",
-    display: "flex",
-    gap: "25px",
-  },
-
-  link: {
-    textDecoration: "none",
-    color: "white",
-    fontSize: "16px",
-    fontWeight: "500",
   }
 };
 
