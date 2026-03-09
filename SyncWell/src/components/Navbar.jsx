@@ -4,25 +4,16 @@ function Navbar() {
   return (
     <nav style={styles.navbar}>
       
-      <h2 style={styles.logo}>Healthify</h2>
+       <h2>Healthify</h2>
 
-      <ul style={styles.navLinks}>
-        <li>
-          <Link style={styles.link} to="/">Home</Link>
-        </li>
-
-        <li>
-          <Link style={styles.link} to="/mental">Mental Health</Link>
-        </li>
-
-        <li>
-          <Link style={styles.link} to="/physical">Physical Health</Link>
-        </li>
-
-        <li>
-          <Link style={styles.link} to="/tracker">Habit Tracker</Link>
-        </li>
-      </ul>
+      <div style={{ display: "flex", gap: "20px" }}>
+        <Link to="/">Home</Link>
+        <Link to="/mental">Mental Health</Link>
+        <Link to="/physical">Physical Health</Link>
+        <Link to="/tracker">Habit Tracker</Link>
+        <Link to="/account">Account</Link>
+      </div>
+      
 
     </nav>
   );
