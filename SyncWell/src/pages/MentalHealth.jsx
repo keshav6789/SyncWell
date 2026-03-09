@@ -10,7 +10,7 @@ return(
 
 <MotivationQuotes/>
 
-<Meditation/>
+{/* <Meditation/> */}
 
 </>
 
