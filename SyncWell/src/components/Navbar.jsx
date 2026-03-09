@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <nav style={styles.navbar}>
       
-      <h2 style={styles.logo}>Healthify</h2>
+      <h2 style={styles.logo}>SyncWell</h2>
 
       <ul style={styles.navLinks}>
         <li>
