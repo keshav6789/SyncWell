@@ -1,4 +1,4 @@
-import Meditation from "../components/Meditation"
+// import Meditation from "../components/Meditation"
 import MotivationQuotes from "../components/MotivationQuotes"
 
 function MentalHealth(){
@@ -10,7 +10,7 @@ return(
 
 <MotivationQuotes/>
 
-<Meditation/>
+{/* <Meditation/> */}
 
 </>
 
