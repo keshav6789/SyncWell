@@ -19,8 +19,8 @@ function Footer() {
 
         <div>
           <h3>Contact</h3>
-          <p>Email: healthify@gmail.com</p>
-          <p>Phone: +91 9876543210</p>
+          <p>Email: keshav98486@gmail.com</p>
+          <p>Phone: +91 9350349757</p>
         </div>
 
       </div>

@@ -3,9 +3,9 @@ import hero from "../assets/hero.png";
 
 function Hero() {
   return (
-    <section style={styles.hero}>
+    <section style={{ ...styles.hero, backgroundImage: `url(${hero})` }}>
 
-      <div style={styles.textSection}>
+      <div style={styles.overlay}>
         <h1 style={styles.title}>
           Improve Your Mental & Physical Health
         </h1>
@@ -20,35 +20,37 @@ function Hero() {
         </Link>
       </div>
 
-      <div>
-        <img src={hero} alt="health" style={styles.image}/>
-      </div>
-
     </section>
   );
 }
 
 const styles = {
   hero: {
+    width: "100%",
+    height: "100vh",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-between",
-    padding: "60px 80px",
+    justifyContent: "center"
   },
 
-  textSection: {
-    maxWidth: "500px"
+  overlay: {
+    textAlign: "center",
+    color: "white",
+    background: "rgba(0,0,0,0.4)",
+    padding: "40px",
+    borderRadius: "10px"
   },
 
   title: {
-    fontSize: "40px",
+    fontSize: "48px",
     marginBottom: "20px"
   },
 
   description: {
     fontSize: "18px",
-    marginBottom: "25px",
-    color: "#555"
+    marginBottom: "25px"
   },
 
   button: {
@@ -57,12 +59,8 @@ const styles = {
     backgroundColor: "#22c55e",
     border: "none",
     color: "white",
-    borderRadius: "5px",
+    borderRadius: "6px",
     cursor: "pointer"
-  },
-
-  image: {
-    width: "420px"
   }
 };
 
