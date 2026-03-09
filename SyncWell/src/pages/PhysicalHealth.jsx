@@ -1,5 +1,6 @@
 import Workout from "../components/Workout"
 import BMICalculator from "../components/BMICalculator"
+import CalorieCalculator from "../components/CalorieCalculator"
 
 function PhysicalHealth(){
 
@@ -11,6 +12,8 @@ return(
 <Workout/>
 
 <BMICalculator/>
+
+<CalorieCalculator/>
 
 </>
 

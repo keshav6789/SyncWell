@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <nav style={styles.navbar}>
       
-       <h2>SyncWell</h2>
+       <h2>Healthify</h2>
 
       <div style={{ display: "flex", gap: "20px" }}>
         <Link to="/">Home</Link>
@@ -13,7 +13,6 @@ function Navbar() {
         <Link to="/tracker">Habit Tracker</Link>
         <Link to="/account">Account</Link>
       </div>
-      
 
     </nav>
   );
@@ -33,19 +32,6 @@ const styles = {
     fontSize: "24px",
     fontWeight: "bold",
     color: "#22c55e",
-  },
-
-  navLinks: {
-    listStyle: "none",
-    display: "flex",
-    gap: "25px",
-  },
-
-  link: {
-    textDecoration: "none",
-    color: "white",
-    fontSize: "16px",
-    fontWeight: "500",
   }
 };
 
