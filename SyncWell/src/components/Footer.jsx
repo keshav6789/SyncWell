@@ -5,7 +5,7 @@ function Footer() {
       <div style={styles.container}>
 
         <div>
-          <h2 style={styles.logo}>Healthify</h2>
+          <h2 style={styles.logo}>SyncWell</h2>
           <p>Track your habits and improve your mental and physical health.</p>
         </div>
 
@@ -25,7 +25,7 @@ function Footer() {
 
       </div>
 
-      <p style={styles.copy}>© 2026 Healthify. All rights reserved.</p>
+      <p style={styles.copy}>© 2026 SyncWell. All rights reserved.</p>
 
     </footer>
   );

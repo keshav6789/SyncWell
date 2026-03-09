@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <nav style={styles.navbar}>
       
-       <h2>Healthify</h2>
+       <h2>SyncWell</h2>
 
       <div style={{ display: "flex", gap: "20px" }}>
         <Link to="/">Home</Link>

@@ -11,7 +11,7 @@ function Hero() {
         </h1>
 
         <p style={styles.description}>
-          Healthify helps you track your habits, improve mental wellness,
+          SyncWell helps you track your habits, improve mental wellness,
           and stay physically active with simple daily tracking tools.
         </p>
 
