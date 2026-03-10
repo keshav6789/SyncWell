@@ -11,7 +11,7 @@ return(
 
 <Workout/>
 
-<BMICalculator/>
+{/* <BMICalculator/> */}
 
 <CalorieCalculator/>
 
