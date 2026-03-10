@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import MentalHealth from "./pages/MentalHealth";
+import MentalHealthDetail from "./pages/MentalHealthDetail";
 import PhysicalHealth from "./pages/PhysicalHealth";
 import Login from "./pages/Login";
 import  Account from "./pages/Account";
@@ -36,6 +37,13 @@ function App() {
         <Route path="/mental" element={
             <ProtectedRoute>
               <MentalHealth />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route path="/mental/:slug" element={
+            <ProtectedRoute>
+              <MentalHealthDetail />
             </ProtectedRoute>
           }
         />
