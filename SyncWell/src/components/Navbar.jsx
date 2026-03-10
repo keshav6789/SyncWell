@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <nav style={styles.navbar}>
       
-      <h2 style={styles.logo}>SyncWell</h2>
+       <h2>SyncWell</h2>
 
       <div style={{ display: "flex", gap: "20px" }}>
         <Link to="/">Home</Link>
@@ -24,14 +24,14 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     padding: "15px 40px",
-    backgroundColor: "#0f172a",
+    backgroundColor: "#22c55e",
     color: "white",
   },
 
   logo: {
     fontSize: "24px",
     fontWeight: "bold",
-    color: "#22c55e",
+    color: "#feffff",
   }
 };
 
