@@ -274,29 +274,29 @@ function CalorieCalculator() {
 
             <div style={styles.resultGrid}>
               <div style={styles.resultCard}>
-                <p>Maintenance Calories</p>
-                <h3>{result.maintenanceCalories} kcal</h3>
+                <p style={styles.resultCardLabel}>Maintenance Calories</p>
+                <h3 style={styles.resultCardValue}>{result.maintenanceCalories} kcal</h3>
               </div>
 
               <div style={{ ...styles.resultCard, background: "#ecfdf5" }}>
-                <p>Target Calories</p>
-                <h3>{result.targetCalories} kcal</h3>
+                <p style={styles.resultCardLabel}>Target Calories</p>
+                <h3 style={styles.resultCardValue}>{result.targetCalories} kcal</h3>
               </div>
 
               <div style={{ ...styles.resultCard, background: "#fef3c7" }}>
-                <p>BMI</p>
-                <h3>{result.bmi}</h3>
-                <small>{getBmiCategory(result.bmi)}</small>
+                <p style={styles.resultCardLabel}>BMI</p>
+                <h3 style={styles.resultCardValue}>{result.bmi}</h3>
+                <small style={styles.resultCardSmall}>{getBmiCategory(result.bmi)}</small>
               </div>
 
               <div style={{ ...styles.resultCard, background: "#ede9fe" }}>
-                <p>Protein Target</p>
-                <h3>{result.protein} g/day</h3>
+                <p style={styles.resultCardLabel}>Protein Target</p>
+                <h3 style={styles.resultCardValue}>{result.protein} g/day</h3>
               </div>
 
               <div style={{ ...styles.resultCard, background: "#e0f2fe" }}>
-                <p>Water Intake</p>
-                <h3>{result.water} L/day</h3>
+                <p style={styles.resultCardLabel}>Water Intake</p>
+                <h3 style={styles.resultCardValue}>{result.water} L/day</h3>
               </div>
             </div>
           </div>
@@ -341,10 +341,10 @@ function CalorieCalculator() {
 
 const styles = {
   wrapper: {
-    padding: "60px 20px",
-    background: "#f4f6fb",
+    padding: "20px 20px 30px",
+    background: "transparent",
     fontFamily: "Arial, sans-serif",
-    minHeight: "80vh",
+    minHeight: "auto",
   },
 
   title: {
@@ -356,16 +356,17 @@ const styles = {
 
   subtitle: {
     textAlign: "center",
-    color: "#6b7280",
+    color: "#a4a8b0",
     marginBottom: "30px",
     maxWidth: "760px",
     marginInline: "auto",
   },
 
   card: {
-    maxWidth: "900px",
+    maxWidth: "1000px",
+    height:"300px",
     margin: "auto",
-    background: "white",
+    background: "rgba(255, 255, 255, 0.8)",
     padding: "30px",
     borderRadius: "18px",
     boxShadow: "0 10px 25px rgba(0,0,0,0.08)",
@@ -374,14 +375,14 @@ const styles = {
   inputs: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit,minmax(160px,1fr))",
-    gap: "12px",
+    gap: "30px",
   },
 
   input: {
-    padding: "12px",
+    padding: "18px",
     borderRadius: "10px",
     border: "1px solid #ddd",
-    fontSize: "14px",
+    fontSize: "20px",
   },
 
   button: {
@@ -396,7 +397,7 @@ const styles = {
   },
 
   resultSection: {
-    maxWidth: "950px",
+    maxWidth: "760px",
     margin: "30px auto",
   },
 
@@ -419,9 +420,25 @@ const styles = {
     textAlign: "center",
     boxShadow: "0 8px 18px rgba(0,0,0,0.05)",
   },
+  resultCardLabel: {
+    margin: "0 0 12px",
+    fontSize: "20px",
+    color: "#334155",
+  },
+  resultCardValue: {
+    margin: 0,
+    fontSize: "36px",
+    color: "#0f172a",
+  },
+  resultCardSmall: {
+    display: "inline-block",
+    marginTop: "10px",
+    fontSize: "18px",
+    color: "#475569",
+  },
 
   dietSection: {
-    maxWidth: "900px",
+    maxWidth: "720px",
     margin: "30px auto",
     background: "white",
     padding: "25px",

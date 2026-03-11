@@ -1,16 +1,5 @@
-import Hero from "../components/Hero";
-import MotivationQuotes from "../components/MotivationQuotes";
-
-function Home() {
-  return (
-    <main>
-
-      {/* <Hero /> */}
-
-      <MotivationQuotes />
-
-    </main>
-  );
+function Meditation() {
+  return null;
 }
 
-export default Home;
+export default Meditation;

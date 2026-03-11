@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function MentalHealthSection() {
   const quotes = [
@@ -10,69 +10,57 @@ function MentalHealthSection() {
     "Every day is a fresh start.",
     "Your mental health matters.",
     "Growth takes time, keep going."
-  ]
+  ];
 
-  const [quote, setQuote] = useState(quotes[0])
-  const navigate = useNavigate()
+  const [quote, setQuote] = useState(quotes[0]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const random = Math.floor(Math.random() * quotes.length)
-      setQuote(quotes[random])
-    }, 5000)
+      const random = Math.floor(Math.random() * quotes.length);
+      setQuote(quotes[random]);
+    }, 5000);
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   const cards = [
     {
       title: "Overthinking",
       path: "/mental/overthinking",
       description:
-        "Overthinking happens when the mind continuously analyzes the same thoughts. It can create stress and reduce productivity.",
-      tips: [
-       
-      ]
+        "Overthinking happens when the mind continuously analyzes the same thoughts. It can create stress and reduce productivity."
     },
     {
       title: "Anxiety",
       path: "/mental/anxiety",
       description:
-        "Anxiety is a natural response to stress, but when it becomes excessive it can affect daily life and mental well-being.",
-      tips: [
-       
-      ]
+        "Anxiety is a natural response to stress, but when it becomes excessive it can affect daily life and mental well-being."
     },
     {
       title: "Depression",
       path: "/mental/depression",
       description:
-        "Depression can affect emotions, energy, motivation, sleep, and everyday functioning when low mood stays for a long time.",
-      tips: [
-        
-      ]
+        "Depression can affect emotions, energy, motivation, sleep, and everyday functioning when low mood stays for a long time."
     },
     {
       title: "Self Concept",
       path: "/mental/self-concept",
       description:
-        "Self concept is the way you see and understand yourself. A healthy self concept helps build confidence, emotional stability and better decision making.",
-      tips: [
-       
-      ]
+        "Self concept is the way you see and understand yourself. A healthy self concept helps build confidence, emotional stability and better decision making."
     }
-  ]
+  ];
 
   const openPage = (path) => {
-    navigate(path)
-  }
+    navigate(path);
+  };
 
   const handleKeyDown = (event, path) => {
     if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault()
-      openPage(path)
+      event.preventDefault();
+      openPage(path);
     }
-  }
+  };
 
   return (
     <section style={styles.section}>
@@ -88,24 +76,13 @@ function MentalHealthSection() {
         Your browser does not support the video tag.
       </video>
 
-<<<<<<< HEAD
-
       <div style={styles.overlay} />
-=======
-      <div style={styles.quoteCard}>
-        <h3>✨ Daily Motivation</h3>
-        <p style={styles.quote}>{quote}</p>
-      </div>
-
-=======
-      <div style={styles.overlay} />
->>>>>>> 886f94af9b3bc4567bbd2ab6b051904d580cf435
 
       <div style={styles.content}>
         <h1 style={styles.mainHeading}>Mental Health Support</h1>
 
         <div style={styles.quoteCard}>
-          <h3>Daily Motivation</h3>
+          <h3 style={styles.quoteHeading}>Daily Motivation</h3>
           <p style={styles.quote}>{quote}</p>
         </div>
 
@@ -121,20 +98,12 @@ function MentalHealthSection() {
             >
               <h2 style={styles.cardTitle}>{card.title}</h2>
               <p style={styles.cardDescription}>{card.description}</p>
-
-              <ul style={styles.list}>
-                {card.tips.map((tip) => (
-                  <li key={tip} style={styles.listItem}>
-                    {tip}
-                  </li>
-                ))}
-              </ul>
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 const styles = {
@@ -175,8 +144,12 @@ const styles = {
     margin: "0 auto 40px auto",
     boxShadow: "0 20px 40px rgba(34, 197, 94, 0.2)"
   },
+  quoteHeading: {
+    fontSize: "32px",
+    marginBottom: "18px"
+  },
   quote: {
-    fontSize: "20px",
+    fontSize: "30px",
     margin: 0
   },
   grid: {
@@ -203,21 +176,11 @@ const styles = {
   },
   cardDescription: {
     marginTop: 0,
-    marginBottom: "14px",
+    marginBottom: 0,
     color: "#475569",
     lineHeight: "1.7",
     fontSize: "21px"
-  },
-  list: {
-    margin: 0,
-    paddingLeft: "20px",
-    color: "#334155",
-    lineHeight: "1.8",
-    fontSize: "19px"
-  },
-  listItem: {
-    marginBottom: "8px"
   }
-}
+};
 
-export default MentalHealthSection
+export default MentalHealthSection;

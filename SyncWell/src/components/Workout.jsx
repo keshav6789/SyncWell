@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
 import { db, auth } from "../firebase/firebase";
 
-function Workout() {
+function Workout({ pageStyle = {} }) {
   const workoutPlan = [
     { name: "Jumping Jacks", baseReps: 20, difficulty: "Easy", calories: 30 },
     { name: "Squats", baseReps: 15, difficulty: "Easy", calories: 25 },
@@ -186,7 +186,7 @@ function Workout() {
   };
 
   return (
-    <section style={styles.page}>
+    <section style={{ ...styles.page, ...pageStyle }}>
       <div style={styles.bgCircleOne}></div>
       <div style={styles.bgCircleTwo}></div>
 
