@@ -40,7 +40,7 @@ function FeatureCards() {
           </Link>
         </div>
 
-<<<<<<< HEAD
+
         {/* <div style={styles.card}>
 =======
         <div style={styles.card}>
