@@ -2,7 +2,10 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import MentalHealth from "./pages/MentalHealth";
-import MentalHealthDetail from "./pages/MentalHealthDetail";
+import AnxietyPage from "./pages/AnxietyPage";
+import OverthinkingPage from "./pages/OverthinkingPage";
+import DepressionPage from "./pages/DepressionPage";
+import SelfConceptPage from "./pages/SelfConceptPage";
 import PhysicalHealth from "./pages/PhysicalHealth";
 import Login from "./pages/Login";
 import Account from "./pages/Account";
@@ -17,11 +20,9 @@ function App() {
 
   return (
     <>
-      {/* Hide Navbar on login page */}
       {!isLoginPage && <Navbar />}
 
       <Routes>
-        {/* Login Page */}
         <Route
           path="/login"
           element={
@@ -31,7 +32,6 @@ function App() {
           }
         />
 
-        {/* Home Page */}
         <Route
           path="/"
           element={
@@ -41,7 +41,6 @@ function App() {
           }
         />
 
-        {/* Mental Health Main Page */}
         <Route
           path="/mental"
           element={
@@ -51,17 +50,42 @@ function App() {
           }
         />
 
-        {/* Mental Health Detail Page (Overthinking / Anxiety / etc) */}
         <Route
-          path="/mental/:slug"
+          path="/mental/anxiety"
           element={
             <ProtectedRoute>
-              <MentalHealthDetail />
+              <AnxietyPage />
             </ProtectedRoute>
           }
         />
 
-        {/* Physical Health Page */}
+        <Route
+          path="/mental/overthinking"
+          element={
+            <ProtectedRoute>
+              <OverthinkingPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/mental/depression"
+          element={
+            <ProtectedRoute>
+              <DepressionPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/mental/self-concept"
+          element={
+            <ProtectedRoute>
+              <SelfConceptPage />
+            </ProtectedRoute>
+          }
+        />
+
         <Route
           path="/physical"
           element={
@@ -71,7 +95,6 @@ function App() {
           }
         />
 
-        {/* Account Page */}
         <Route
           path="/account"
           element={
@@ -82,7 +105,6 @@ function App() {
         />
       </Routes>
 
-      {/* Hide Footer on login page */}
       {!isLoginPage && <Footer />}
     </>
   );

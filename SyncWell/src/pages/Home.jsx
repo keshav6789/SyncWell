@@ -19,6 +19,7 @@ function Home() {
       <FeatureCards />
 
 
+
       {/* Motivation preview section */}
       <section style={{padding:"60px 20px", textAlign:"center"}}>
         {/* <h2>Daily Motivation</h2> */}
@@ -26,6 +27,9 @@ function Home() {
       </section>
 
       <MotivationQuotes />
+
+      {/* <MotivationQuotes /> */}
+
 
 
       <CommunityFeed />
