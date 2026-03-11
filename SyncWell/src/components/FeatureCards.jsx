@@ -41,9 +41,17 @@ function FeatureCards() {
           </Link>
         </div>
 
+<<<<<<< HEAD
         <div style={styles.card} className="feature-card">
+=======
+<<<<<<< HEAD
+        {/* <div style={styles.card}>
+=======
+        <div style={styles.card}>
+>>>>>>> c6fc2c82e61da42cbcfebc06e5553e60b7b97d2f
           <img src={habitImg} style={styles.image} />
 
+>>>>>>> fb837c6a818ce36bc47447c4e9aa0d8526835554
           <h3>📊 Habit Tracker</h3>
 
           <p>
@@ -53,7 +61,7 @@ function FeatureCards() {
           <Link to="/tracker">
             <button style={styles.button}>Start</button>
           </Link>
-        </div>
+        </div> */}
 
       </div>
 

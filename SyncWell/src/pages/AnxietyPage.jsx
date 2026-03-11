@@ -14,11 +14,34 @@ But if worry stays too long or gets too strong, it can stop you from doing daily
       solutionPoints={[
         "Slow breathing exercises and grounding techniques can reduce the immediate intensity of anxious thoughts.",
         "Daily routines such as regular sleep, movement, hydration, and reduced caffeine often help stabilise symptoms.",
-        "Talking to a trusted person or a mental health professional can help when anxiety becomes hard to manage."
+        "Talking to a trusted person or a mental health professional can help when anxiety becomes hard to manage.",
+        "Try mindfulness meditation",
+        "Take slow deep breaths",
+        "Exercise regularly",
+        "Talk with supportive people"
       ]}
-      imageLabel="Add an anxiety-related image here later"
+      imageLabel="Add an anxiety-related video here later"
+      mediaType="video"
+      mediaSrc="/video/anxiety.mp4"
+      heroCardStyle={styles.heroCard}
+      mediaFrameStyle={styles.mediaFrame}
+      mediaStyle={styles.media}
     />
   )
+}
+
+const styles = {
+  heroCard: {
+    alignItems: "start"
+  },
+  mediaFrame: {
+    height: "350px",
+    minHeight: "180px"
+  },
+  media: {
+    height: "350px",
+    minHeight: "180px"
+  }
 }
 
 export default AnxietyPage
