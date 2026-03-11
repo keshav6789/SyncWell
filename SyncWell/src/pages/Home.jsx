@@ -1,6 +1,6 @@
 import Hero from "../components/Hero";
 import FeatureCards from "../components/FeatureCards";
-import MotivationQuotes from "../components/MotivationQuotes";
+// import MotivationQuotes from "../components/MotivationQuotes";
 
 function Home() {
   return (
@@ -14,8 +14,8 @@ function Home() {
 
       {/* Motivation preview section */}
       <section style={{padding:"60px 20px", textAlign:"center"}}>
-        <h2>Daily Motivation</h2>
-        <MotivationQuotes />
+        {/* <h2>Daily Motivation</h2> */}
+        {/* <MotivationQuotes /> */}
       </section>
 
     </main>

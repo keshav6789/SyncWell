@@ -24,13 +24,13 @@ function FeatureCards() {
           </Link>
         </div>
 
-        <div style={styles.card}>
+        {/* <div style={styles.card}>
           <h3>📊 Habit Tracker</h3>
           <p>Track your daily habits and build a healthy lifestyle.</p>
           <Link to="/tracker">
             <button style={styles.button}>Start</button>
           </Link>
-        </div>
+        </div> */}
 
       </div>
 
