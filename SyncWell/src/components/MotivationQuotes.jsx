@@ -1,25 +1,15 @@
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 function MentalHealthSection() {
   const quotes = [
     "Believe in yourself and all that you are.",
     "You are stronger than your anxiety.",
-    "If you wanna win work hard",
     "Small progress is still progress.",
     "Peace begins with a deep breath.",
-    "Don't give up",
     "Every day is a fresh start.",
     "Your mental health matters.",
-    "Growth takes time, keep going.",
-    "As long as you are alive. There are infinite chances",
-    "Don't cry for what you lost, Be greatfull for what you have",
-    "Don't depend on others",
-    "The world is cruel, but also very beautiful",
-    "Life is short so live it",
-    "You ,ust be the one to determine your own value and path",
-    "Stop waiting for luck and actively change your situation "
-
+    "Growth takes time, keep going."
   ]
 
   const [quote, setQuote] = useState(quotes[0])
@@ -34,14 +24,65 @@ function MentalHealthSection() {
     return () => clearInterval(interval)
   }, [])
 
-  const openDisorderPage = (slug) => {
-    navigate(`/mental/${slug}`)
+  const cards = [
+    {
+      title: "Overthinking",
+      path: "/mental/overthinking",
+      description:
+        "Overthinking happens when the mind continuously analyzes the same thoughts. It can create stress and reduce productivity.",
+      tips: [
+        "Practice deep breathing",
+        "Write your thoughts in a journal",
+        "Focus on the present moment",
+        "Limit negative self-talk"
+      ]
+    },
+    {
+      title: "Anxiety",
+      path: "/mental/anxiety",
+      description:
+        "Anxiety is a natural response to stress, but when it becomes excessive it can affect daily life and mental well-being.",
+      tips: [
+        "Try mindfulness meditation",
+        "Take slow deep breaths",
+        "Exercise regularly",
+        "Talk with supportive people"
+      ]
+    },
+    {
+      title: "Depression",
+      path: "/mental/depression",
+      description:
+        "Depression can affect emotions, energy, motivation, sleep, and everyday functioning when low mood stays for a long time.",
+      tips: [
+        "Reach out to someone you trust",
+        "Follow a simple daily routine",
+        "Spend time in sunlight and fresh air",
+        "Seek professional support when needed"
+      ]
+    },
+    {
+      title: "Self Concept",
+      path: "/mental/self-concept",
+      description:
+        "Self concept is the way you see and understand yourself. A healthy self concept helps build confidence, emotional stability and better decision making.",
+      tips: [
+        "Accept yourself and your imperfections",
+        "Focus on personal growth",
+        "Set realistic goals",
+        "Practice positive self-talk"
+      ]
+    }
+  ]
+
+  const openPage = (path) => {
+    navigate(path)
   }
 
-  const handleKeyDown = (event, slug) => {
+  const handleKeyDown = (event, path) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault()
-      openDisorderPage(slug)
+      openPage(path)
     }
   }
 
@@ -54,89 +95,28 @@ function MentalHealthSection() {
         <p style={styles.quote}>{quote}</p>
       </div>
 
-      <div
-        style={styles.clickableCard}
-        onClick={() => openDisorderPage("overthinking")}
-        onKeyDown={(event) => handleKeyDown(event, "overthinking")}
-        role="button"
-        tabIndex={0}
-      >
-        <h2>Overthinking</h2>
-        <p>
-          Overthinking happens when the mind continuously analyzes the same
-          thoughts. It can create stress and reduce productivity.
-        </p>
+      <div style={styles.grid}>
+        {cards.map((card) => (
+          <div
+            key={card.title}
+            style={styles.clickableCard}
+            onClick={() => openPage(card.path)}
+            onKeyDown={(event) => handleKeyDown(event, card.path)}
+            role="button"
+            tabIndex={0}
+          >
+            <h2 style={styles.cardTitle}>{card.title}</h2>
+            <p style={styles.cardDescription}>{card.description}</p>
 
-        <ul>
-          <li>Practice deep breathing</li>
-          <li>Write your thoughts in a journal</li>
-          <li>Focus on the present moment</li>
-          <li>Limit negative self-talk</li>
-        </ul>
-      </div>
-
-      <div
-        style={styles.clickableCard}
-        onClick={() => openDisorderPage("anxiety")}
-        onKeyDown={(event) => handleKeyDown(event, "anxiety")}
-        role="button"
-        tabIndex={0}
-      >
-        <h2>Anxiety</h2>
-        <p>
-          Anxiety is a natural response to stress, but when it becomes
-          excessive it can affect daily life and mental well-being.
-        </p>
-
-        <ul>
-          <li>Try mindfulness meditation</li>
-          <li>Take slow deep breaths</li>
-          <li>Exercise regularly</li>
-          <li>Talk with supportive people</li>
-        </ul>
-      </div>
-
-      <div
-        style={styles.clickableCard}
-        onClick={() => openDisorderPage("stress-management")}
-        onKeyDown={(event) => handleKeyDown(event, "stress-management")}
-        role="button"
-        tabIndex={0}
-      >
-        <h2>Stress Management</h2>
-        <p>
-          Stress is a part of life, but managing it in healthy ways can improve
-          focus, energy and emotional balance.
-        </p>
-
-        <ul>
-          <li>Take short breaks during the day</li>
-          <li>Follow a consistent sleep routine</li>
-          <li>Spend time doing relaxing activities</li>
-          <li>Break big tasks into smaller steps</li>
-        </ul>
-      </div>
-
-      <div
-        style={styles.clickableCard}
-        onClick={() => openDisorderPage("self-concept")}
-        onKeyDown={(event) => handleKeyDown(event, "self-concept")}
-        role="button"
-        tabIndex={0}
-      >
-        <h2>Self Concept</h2>
-        <p>
-          Self concept is the way you see and understand yourself. A healthy
-          self concept helps build confidence, emotional stability and better
-          decision making.
-        </p>
-
-        <ul>
-          <li>Accept yourself and your imperfections</li>
-          <li>Focus on personal growth</li>
-          <li>Set realistic goals</li>
-          <li>Practice positive self-talk</li>
-        </ul>
+            <ul style={styles.list}>
+              {card.tips.map((tip) => (
+                <li key={tip} style={styles.listItem}>
+                  {tip}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </section>
   )
@@ -148,34 +128,59 @@ const styles = {
     background: "#f5f7fb",
     textAlign: "center"
   },
-
   mainHeading: {
     fontSize: "40px",
-    marginBottom: "40px"
+    marginBottom: "40px",
+    color: "#0f172a"
   },
-
   quoteCard: {
     background: "#22c55e",
     color: "white",
     padding: "30px",
-    borderRadius: "10px",
-    maxWidth: "600px",
-    margin: "0 auto 40px auto"
+    borderRadius: "18px",
+    maxWidth: "700px",
+    margin: "0 auto 40px auto",
+    boxShadow: "0 20px 40px rgba(34, 197, 94, 0.2)"
   },
-
   quote: {
-    fontSize: "20px"
+    fontSize: "20px",
+    margin: 0
   },
-
+  grid: {
+    maxWidth: "1100px",
+    margin: "0 auto",
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+    gap: "20px"
+  },
   clickableCard: {
     background: "white",
-    padding: "30px",
-    margin: "20px auto",
-    maxWidth: "700px",
-    borderRadius: "10px",
-    boxShadow: "0 6px 15px rgba(0,0,0,0.1)",
+    padding: "28px",
+    borderRadius: "20px",
+    boxShadow: "0 12px 28px rgba(15, 23, 42, 0.08)",
     textAlign: "left",
-    cursor: "pointer"
+    cursor: "pointer",
+    border: "1px solid #e2e8f0"
+  },
+  cardTitle: {
+    marginTop: 0,
+    marginBottom: "14px",
+    color: "#0f172a"
+  },
+  cardDescription: {
+    marginTop: 0,
+    marginBottom: "14px",
+    color: "#475569",
+    lineHeight: "1.7"
+  },
+  list: {
+    margin: 0,
+    paddingLeft: "20px",
+    color: "#334155",
+    lineHeight: "1.8"
+  },
+  listItem: {
+    marginBottom: "8px"
   }
 }
 

@@ -2,7 +2,10 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import MentalHealth from "./pages/MentalHealth";
-import MentalHealthDetail from "./pages/MentalHealthDetail";
+import AnxietyPage from "./pages/AnxietyPage";
+import OverthinkingPage from "./pages/OverthinkingPage";
+import DepressionPage from "./pages/DepressionPage";
+import SelfConceptPage from "./pages/SelfConceptPage";
 import PhysicalHealth from "./pages/PhysicalHealth";
 import Login from "./pages/Login";
 import  Account from "./pages/Account";
@@ -41,9 +44,30 @@ function App() {
           }
         />
 
-        <Route path="/mental/:slug" element={
+        <Route path="/mental/anxiety" element={
             <ProtectedRoute>
-              <MentalHealthDetail />
+              <AnxietyPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route path="/mental/overthinking" element={
+            <ProtectedRoute>
+              <OverthinkingPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route path="/mental/depression" element={
+            <ProtectedRoute>
+              <DepressionPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route path="/mental/self-concept" element={
+            <ProtectedRoute>
+              <SelfConceptPage />
             </ProtectedRoute>
           }
         />

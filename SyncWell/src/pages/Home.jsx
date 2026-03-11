@@ -18,7 +18,7 @@ function Home() {
 
       <FeatureCards />
 
-      <MotivationQuotes />
+      {/* <MotivationQuotes /> */}
 
       <CommunityFeed />
     </main>
