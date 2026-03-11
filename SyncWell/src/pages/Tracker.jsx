@@ -1,7 +1,7 @@
-import HabitTracker from "../components/HabitTracker";
+// import HabitTracker from "../components/HabitTracker";
 
-function Tracker() {
-  return <HabitTracker />;
-}
+// function Tracker() {
+//   return <HabitTracker />;
+// }
 
-export default Tracker;
+// export default Tracker;

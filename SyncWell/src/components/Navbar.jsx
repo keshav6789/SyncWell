@@ -26,6 +26,8 @@ const styles = {
     padding: "15px 40px",
     backgroundColor: "#22c55e",
     color: "white",
+    position: "relative",
+    zIndex: 20,
   },
 
   logo: {

@@ -31,10 +31,7 @@ function MentalHealthSection() {
       description:
         "Overthinking happens when the mind continuously analyzes the same thoughts. It can create stress and reduce productivity.",
       tips: [
-        "Practice deep breathing",
-        "Write your thoughts in a journal",
-        "Focus on the present moment",
-        "Limit negative self-talk"
+       
       ]
     },
     {
@@ -147,10 +144,10 @@ const styles = {
     margin: 0
   },
   grid: {
-    maxWidth: "1100px",
+    maxWidth: "900px",
     margin: "0 auto",
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+    gridTemplateColumns: "1fr",
     gap: "20px"
   },
   clickableCard: {

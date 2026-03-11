@@ -1,23 +1,64 @@
+import { useEffect, useRef } from "react"
+
 function MentalHealthArticlePage({
   title,
   intro,
   disorderPoints,
   solutionPoints,
   imageLabel,
+  mediaType = "image",
+  mediaSrc = "",
+  pageStyle = {},
+  heroCardStyle = {},
   children
 }) {
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    if (mediaType !== "video" || !mediaSrc || !videoRef.current) {
+      return
+    }
+
+    const attemptPlayback = async () => {
+      try {
+        await videoRef.current.play()
+      } catch (error) {
+        // Ignore autoplay failures; browser policies may still block playback.
+      }
+    }
+
+    attemptPlayback()
+  }, [mediaType, mediaSrc])
+
   return (
-    <section style={styles.page}>
-      <div style={styles.heroCard}>
+    <section style={{ ...styles.page, ...pageStyle }}>
+      <div style={{ ...styles.heroCard, ...heroCardStyle }}>
         <div style={styles.copyColumn}>
           <p style={styles.eyebrow}>Mental Health</p>
           <h1 style={styles.title}>{title}</h1>
           <p style={styles.intro}>{intro}</p>
         </div>
 
-        <div style={styles.imagePlaceholder}>
-          <span style={styles.imageText}>{imageLabel}</span>
-        </div>
+        {mediaType === "video" && mediaSrc ? (
+          <div style={styles.mediaFrame}>
+            <video
+              ref={videoRef}
+              style={styles.media}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+            >
+              <source src={mediaSrc} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        ) : (
+          <div style={styles.imagePlaceholder}>
+            <span style={styles.imageText}>{imageLabel}</span>
+          </div>
+        )}
       </div>
 
       <div style={styles.contentGrid}>
@@ -74,9 +115,9 @@ const styles = {
     margin: "0 0 8px",
     textTransform: "uppercase",
     letterSpacing: "0.08em",
-    color: "#0f766e",
+    color: "#e6eceb",
     fontWeight: "700",
-    fontSize: "13px"
+    fontSize: "20px"
   },
   title: {
     margin: "0 0 16px",
@@ -100,6 +141,19 @@ const styles = {
     textAlign: "center",
     padding: "24px"
   },
+  mediaFrame: {
+    minHeight: "260px",
+    borderRadius: "20px",
+    overflow: "hidden",
+    background: "#0f172a"
+  },
+  media: {
+    width: "100%",
+    height: "100%",
+    minHeight: "260px",
+    display: "block",
+    objectFit: "cover"
+  },
   imageText: {
     color: "#0f172a",
     fontWeight: "700",
@@ -113,7 +167,7 @@ const styles = {
     gap: "24px"
   },
   card: {
-    background: "white",
+    background: "rgba(236, 238, 242, 0.61)",
     borderRadius: "20px",
     padding: "28px",
     boxShadow: "0 20px 40px rgba(15, 23, 42, 0.08)"
