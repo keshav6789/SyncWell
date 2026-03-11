@@ -7,7 +7,7 @@ function PhysicalHealth(){
 return(
 
 <>
-<h1>Physical Health</h1>
+{/* <h1>Physical Health</h1> */}
 
 <Workout/>
 

@@ -4,7 +4,8 @@ function AnxietyPage() {
   return (
     <MentalHealthArticlePage
       title="Anxiety"
-      intro="Anxiety can feel like constant worry, physical tension, racing thoughts, and fear about what may happen next. This page now exists as a dedicated place where you can keep adding richer content and images later."
+      intro="Anxiety is a normal feeling of worry, fear, or unease. It happens when you face tough problems, like a big challange or choice. This helps you stay alert and handle stress better.
+But if worry stays too long or gets too strong, it can stop you from doing daily things like work, school, or fun activities. That might mean you have an anxiety disorder."
       disorderPoints={[
         "Anxiety may show up as restlessness, overthinking, fast heartbeat, sweating, or difficulty sleeping.",
         "It can affect work, study, relationships, and confidence when stress remains high for a long time.",

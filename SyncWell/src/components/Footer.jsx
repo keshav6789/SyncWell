@@ -36,7 +36,9 @@ const styles = {
     backgroundColor: "#0f172a",
     color: "white",
     padding: "40px 20px",
-    marginTop: "60px"
+    marginTop: "60px",
+    position: "relative",
+    zIndex: 20
   },
 
   container: {

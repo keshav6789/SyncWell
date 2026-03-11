@@ -187,12 +187,15 @@ function Workout() {
 
   return (
     <section style={styles.page}>
+      <div style={styles.bgCircleOne}></div>
+      <div style={styles.bgCircleTwo}></div>
+
       <div style={styles.hero}>
-        <p style={styles.badge}>Physical Wellness</p>
-        <h1 style={styles.pageTitle}>Physical Health</h1>
-        <p style={styles.pageSubtitle}>
-          Build consistency with a smart daily workout plan, session tracking,
-          and progress-based improvement.
+        <div style={styles.heroBadge}>Fitness Dashboard</div>
+        <h1 style={styles.heroTitle}>Level Up Your Physical Health</h1>
+        <p style={styles.heroSubtitle}>
+          Track your workout session, monitor calories, and build daily fitness
+          consistency with a cleaner and smarter dashboard experience.
         </p>
       </div>
 
@@ -383,224 +386,299 @@ function Workout() {
 
 const styles = {
   page: {
-    padding: "60px 20px 80px",
-    background:
-      "linear-gradient(180deg, #f8fbff 0%, #f1f5f9 50%, #eef7f2 100%)",
+    position: "relative",
+    padding: "30px 20px 70px",
+    background: "linear-gradient(180deg, #f8fbff 0%, #eef5ff 45%, #eefaf1 100%)",
     minHeight: "100vh",
-    fontFamily: "Arial, sans-serif",
+    overflow: "hidden",
   },
+
+  bgCircleOne: {
+    position: "absolute",
+    top: "80px",
+    left: "-120px",
+    width: "320px",
+    height: "320px",
+    borderRadius: "50%",
+    background: "rgba(59,130,246,0.10)",
+    filter: "blur(10px)",
+    zIndex: 0,
+  },
+
+  bgCircleTwo: {
+    position: "absolute",
+    top: "180px",
+    right: "-100px",
+    width: "280px",
+    height: "280px",
+    borderRadius: "50%",
+    background: "rgba(34,197,94,0.10)",
+    filter: "blur(10px)",
+    zIndex: 0,
+  },
+
   hero: {
+    position: "relative",
+    zIndex: 1,
+    maxWidth: "1000px",
+    margin: "0 auto 30px",
     textAlign: "center",
-    maxWidth: "850px",
-    margin: "0 auto 40px",
   },
-  badge: {
+
+  heroBadge: {
     display: "inline-block",
-    margin: "0 0 12px",
     padding: "8px 16px",
     borderRadius: "999px",
-    background: "#dcfce7",
-    color: "#166534",
+    background: "#dbeafe",
+    color: "#1d4ed8",
     fontWeight: "bold",
     fontSize: "14px",
-    letterSpacing: "0.3px",
+    marginBottom: "14px",
   },
-  pageTitle: {
-    fontSize: "48px",
-    margin: "0 0 14px",
+
+  heroTitle: {
+    margin: "0 0 12px",
+    fontSize: "52px",
     color: "#0f172a",
+    lineHeight: "1.1",
   },
-  pageSubtitle: {
-    fontSize: "18px",
+
+  heroSubtitle: {
+    margin: "0 auto",
+    maxWidth: "760px",
     color: "#475569",
-    margin: 0,
+    fontSize: "18px",
     lineHeight: "1.8",
   },
+
   mainGrid: {
-    maxWidth: "1200px",
+    position: "relative",
+    zIndex: 1,
+    maxWidth: "1250px",
     margin: "0 auto",
     display: "grid",
-    gridTemplateColumns: "1.6fr 1fr",
-    gap: "24px",
+    gridTemplateColumns: "1.7fr 1fr",
+    gap: "28px",
     alignItems: "start",
   },
+
   leftPanel: {
-    background: "rgba(255,255,255,0.55)",
-    borderRadius: "28px",
-    padding: "28px",
-    backdropFilter: "blur(6px)",
-    boxShadow: "0 14px 40px rgba(15, 23, 42, 0.08)",
-    border: "1px solid rgba(255,255,255,0.7)",
+    background: "rgba(255,255,255,0.72)",
+    borderRadius: "30px",
+    padding: "30px",
+    backdropFilter: "blur(10px)",
+    boxShadow: "0 20px 50px rgba(15, 23, 42, 0.08)",
+    border: "1px solid rgba(255,255,255,0.9)",
   },
+
   rightPanel: {
-    background: "#ffffff",
-    borderRadius: "28px",
-    padding: "24px",
-    boxShadow: "0 14px 40px rgba(15, 23, 42, 0.08)",
+    background: "rgba(255,255,255,0.92)",
+    borderRadius: "30px",
+    padding: "26px",
+    boxShadow: "0 20px 50px rgba(15, 23, 42, 0.08)",
     border: "1px solid #e2e8f0",
+    backdropFilter: "blur(6px)",
   },
+
   cardHeader: {
     textAlign: "center",
     marginBottom: "24px",
   },
+
   coachTitle: {
     margin: "0 0 10px",
-    fontSize: "38px",
+    fontSize: "56px",
+    lineHeight: "1.1",
     color: "#0f172a",
   },
+
   coachSubtitle: {
     margin: 0,
     color: "#64748b",
     fontSize: "18px",
   },
+
   inputCard: {
-    background: "#ffffff",
-    borderRadius: "22px",
-    padding: "22px",
-    marginBottom: "20px",
-    boxShadow: "0 10px 24px rgba(15, 23, 42, 0.06)",
+    background: "linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)",
+    borderRadius: "24px",
+    padding: "24px",
+    marginBottom: "22px",
+    boxShadow: "0 12px 28px rgba(15, 23, 42, 0.05)",
+    border: "1px solid #eef2f7",
   },
+
   label: {
     display: "block",
     fontWeight: "bold",
-    marginBottom: "10px",
-    fontSize: "16px",
-    color: "#0f172a",
+    marginBottom: "12px",
+    fontSize: "18px",
+    color: "#111827",
   },
+
   input: {
     width: "100%",
-    padding: "14px 16px",
-    borderRadius: "14px",
+    padding: "16px",
+    borderRadius: "16px",
     border: "1px solid #cbd5e1",
     fontSize: "16px",
     boxSizing: "border-box",
-    outline: "none",
     background: "#f8fafc",
+    outline: "none",
   },
+
   infoText: {
     marginTop: "14px",
     marginBottom: 0,
     color: "#475569",
-    lineHeight: "1.6",
+    lineHeight: "1.7",
+    fontSize: "15px",
   },
+
   statsGrid: {
     display: "grid",
     gridTemplateColumns: "repeat(3, 1fr)",
-    gap: "14px",
-    marginBottom: "20px",
+    gap: "16px",
+    marginBottom: "22px",
   },
+
   statCard: {
-    background: "#ffffff",
-    padding: "18px",
-    borderRadius: "20px",
-    boxShadow: "0 8px 20px rgba(15, 23, 42, 0.06)",
+    background: "linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)",
+    padding: "20px",
+    borderRadius: "22px",
+    boxShadow: "0 10px 24px rgba(15, 23, 42, 0.05)",
+    border: "1px solid #eef2f7",
+    transition: "transform 0.25s ease",
   },
+
   statLabel: {
     margin: 0,
     color: "#64748b",
-    fontSize: "14px",
+    fontSize: "15px",
   },
+
   statValue: {
-    margin: "10px 0 0",
-    fontSize: "32px",
+    margin: "12px 0 0",
+    fontSize: "44px",
     color: "#0f172a",
+    fontWeight: "bold",
   },
+
   progressCard: {
-    background: "#ffffff",
-    padding: "18px",
-    borderRadius: "20px",
-    marginBottom: "20px",
-    boxShadow: "0 8px 20px rgba(15, 23, 42, 0.06)",
+    background: "linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)",
+    padding: "20px",
+    borderRadius: "22px",
+    marginBottom: "22px",
+    boxShadow: "0 10px 24px rgba(15, 23, 42, 0.05)",
+    border: "1px solid #eef2f7",
   },
+
   progressRow: {
     display: "flex",
     justifyContent: "space-between",
-    marginBottom: "10px",
+    marginBottom: "12px",
     color: "#334155",
     fontWeight: "bold",
     fontSize: "15px",
   },
+
   progressTrack: {
     width: "100%",
-    height: "12px",
+    height: "14px",
     background: "#e2e8f0",
     borderRadius: "999px",
     overflow: "hidden",
   },
+
   progressFill: {
     height: "100%",
     background: "linear-gradient(90deg, #3b82f6, #22c55e)",
     borderRadius: "999px",
-    transition: "width 0.3s ease",
+    transition: "width 0.4s ease",
+    boxShadow: "0 0 16px rgba(59,130,246,0.25)",
   },
+
   workoutCard: {
-    background: "#ffffff",
-    borderRadius: "24px",
-    padding: "28px",
-    boxShadow: "0 12px 26px rgba(15, 23, 42, 0.08)",
+    background: "linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)",
+    borderRadius: "26px",
+    padding: "30px",
+    boxShadow: "0 14px 30px rgba(15, 23, 42, 0.06)",
     textAlign: "center",
+    border: "1px solid #eef2f7",
   },
+
   difficultyBadge: {
     display: "inline-block",
-    padding: "8px 16px",
+    padding: "8px 18px",
     borderRadius: "999px",
     color: "#ffffff",
     fontWeight: "bold",
     fontSize: "13px",
     marginBottom: "18px",
+    boxShadow: "0 10px 20px rgba(0,0,0,0.12)",
   },
+
   exerciseTitle: {
-    fontSize: "30px",
+    fontSize: "34px",
     margin: "0 0 18px",
     color: "#111827",
   },
+
   exerciseStats: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
     gap: "14px",
-    marginBottom: "20px",
+    marginBottom: "22px",
   },
+
   exerciseMiniCard: {
     background: "#f8fafc",
     padding: "18px",
     borderRadius: "18px",
+    border: "1px solid #e2e8f0",
   },
+
   exerciseMiniLabel: {
     margin: 0,
     fontSize: "14px",
     color: "#64748b",
   },
+
   exerciseMiniValue: {
     margin: "8px 0 0",
     fontWeight: "bold",
     fontSize: "24px",
     color: "#0f172a",
   },
+
   exerciseDescription: {
     color: "#475569",
     lineHeight: "1.8",
     marginBottom: "22px",
+    fontSize: "15px",
   },
+
   buttonRow: {
     display: "flex",
     justifyContent: "center",
     gap: "14px",
     flexWrap: "wrap",
   },
+
   primaryButton: {
     border: "none",
-    padding: "14px 26px",
+    padding: "14px 28px",
     borderRadius: "14px",
     background: "linear-gradient(90deg, #2563eb, #3b82f6)",
     color: "#ffffff",
     fontWeight: "bold",
     fontSize: "15px",
     minWidth: "150px",
-    boxShadow: "0 8px 18px rgba(37, 99, 235, 0.28)",
+    boxShadow: "0 12px 24px rgba(37, 99, 235, 0.28)",
   },
+
   secondaryButton: {
     border: "1px solid #cbd5e1",
-    padding: "14px 26px",
+    padding: "14px 28px",
     borderRadius: "14px",
     background: "#f8fafc",
     color: "#0f172a",
@@ -608,65 +686,77 @@ const styles = {
     fontSize: "15px",
     minWidth: "120px",
   },
+
   completeCard: {
     background: "linear-gradient(135deg, #dbeafe, #dcfce7)",
-    borderRadius: "24px",
-    padding: "34px 24px",
+    borderRadius: "26px",
+    padding: "36px 24px",
     textAlign: "center",
-    boxShadow: "0 12px 26px rgba(15, 23, 42, 0.08)",
+    boxShadow: "0 14px 30px rgba(15, 23, 42, 0.06)",
   },
+
   completeTitle: {
     margin: "0 0 12px",
-    fontSize: "30px",
+    fontSize: "34px",
     color: "#0f172a",
   },
+
   completeText: {
     margin: "0 0 10px",
     color: "#334155",
     fontSize: "16px",
   },
+
   completeNote: {
     margin: 0,
     color: "#2563eb",
     fontWeight: "bold",
   },
+
   summaryTitle: {
     marginTop: 0,
     marginBottom: "16px",
     color: "#0f172a",
-    fontSize: "30px",
+    fontSize: "34px",
   },
+
   summaryGrid: {
     display: "grid",
     gap: "14px",
     marginBottom: "24px",
   },
+
   summaryCard: {
-    background: "#f8fafc",
+    background: "linear-gradient(180deg, #f8fbff 0%, #f8fafc 100%)",
     borderRadius: "18px",
-    padding: "16px",
+    padding: "18px",
     border: "1px solid #e2e8f0",
   },
+
   summaryLabel: {
     margin: 0,
     color: "#64748b",
-    fontSize: "14px",
+    fontSize: "15px",
   },
+
   summaryValue: {
     margin: "10px 0 0",
     color: "#0f172a",
-    fontSize: "28px",
+    fontSize: "26px",
   },
+
   recentList: {
     display: "grid",
     gap: "14px",
   },
+
   recentCard: {
-    background: "#f8fafc",
+    background: "linear-gradient(180deg, #f8fbff 0%, #f8fafc 100%)",
     borderRadius: "18px",
-    padding: "16px",
+    padding: "18px",
     border: "1px solid #e2e8f0",
   },
+
   recentTop: {
     display: "flex",
     justifyContent: "space-between",
@@ -674,18 +764,22 @@ const styles = {
     marginBottom: "8px",
     flexWrap: "wrap",
   },
+
   recentDate: {
     color: "#0f172a",
     fontSize: "18px",
   },
+
   recentDone: {
     color: "#2563eb",
     fontWeight: "bold",
   },
+
   recentText: {
     margin: "6px 0",
     color: "#475569",
   },
+
   emptyText: {
     color: "#64748b",
     margin: 0,
