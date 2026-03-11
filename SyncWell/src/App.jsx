@@ -8,8 +8,9 @@ import DepressionPage from "./pages/DepressionPage";
 import SelfConceptPage from "./pages/SelfConceptPage";
 import PhysicalHealth from "./pages/PhysicalHealth";
 import Login from "./pages/Login";
-import Account from "./pages/Account";
-
+import  Account from "./pages/Account";
+import HabitTracker from "./components/HabitTracker";
+import AnimatedBackground from "./components/AnimatedBackground";
 import { Routes, Route, useLocation } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import PublicRoute from "./components/PublicRoute";

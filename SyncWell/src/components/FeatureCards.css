@@ -1,0 +1,9 @@
+.feature-card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+}
+
+.feature-card:hover button{
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  transform: scale(1.05);
+}

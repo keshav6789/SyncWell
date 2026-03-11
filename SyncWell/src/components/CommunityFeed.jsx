@@ -22,7 +22,11 @@ function CommunityFeed() {
 
   const fetchPosts = async () => {
     try {
-      const q = query(collection(db, "community_posts"), orderBy("createdAt", "desc"));
+      const q = query(
+        collection(db, "community_posts"),
+        orderBy("createdAt", "desc")
+      );
+
       const snapshot = await getDocs(q);
 
       const postList = snapshot.docs.map((doc) => ({
@@ -80,118 +84,205 @@ function CommunityFeed() {
   };
 
   return (
-    <section
-      style={{
-        maxWidth: "900px",
-        margin: "60px auto",
-        padding: "20px",
-        fontFamily: "Arial"
-      }}
-    >
-      <h2 style={{ textAlign: "center", fontSize: "32px" }}>
-        Community
-      </h2>
-
-      <p style={{ textAlign: "center", color: "#6b7280", marginBottom: "25px" }}>
-        Share your progress and motivate others 💪
+    <section style={styles.container}>
+      
+      <h2 style={styles.title}>🌿 SyncWell Community</h2>
+      <p style={styles.subtitle}>
+        Share your progress and inspire others
       </p>
 
-      <form
-        onSubmit={handlePost}
-        style={{
-          background: "#ffffff",
-          padding: "20px",
-          borderRadius: "15px",
-          boxShadow: "0 8px 20px rgba(0,0,0,0.06)",
-          marginBottom: "30px"
-        }}
-      >
+      <form onSubmit={handlePost} style={styles.form}>
+
         <input
           type="text"
           placeholder="Your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          style={{
-            width: "100%",
-            padding: "10px",
-            marginBottom: "10px",
-            borderRadius: "8px",
-            border: "1px solid #ccc"
-          }}
+          style={styles.input}
         />
 
         <textarea
-          placeholder="Share something with the community..."
+          placeholder="Share something positive today..."
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows="3"
-          style={{
-            width: "100%",
-            padding: "10px",
-            marginBottom: "10px",
-            borderRadius: "8px",
-            border: "1px solid #ccc",
-            resize: "none"
-          }}
+          style={styles.textarea}
         />
 
-        <button
-          type="submit"
-          disabled={loading}
-          style={{
-            background: "#2563eb",
-            color: "#fff",
-            border: "none",
-            padding: "10px 20px",
-            borderRadius: "8px",
-            fontWeight: "bold",
-            cursor: "pointer"
-          }}
-        >
-          {loading ? "Posting..." : "Post"}
+        <button type="submit" disabled={loading} style={styles.postButton}>
+          {loading ? "Posting..." : "Share Post"}
         </button>
+
       </form>
 
-      <div style={{ display: "grid", gap: "15px" }}>
+      <div style={styles.feed}>
         {posts.length === 0 ? (
-          <p style={{ textAlign: "center", color: "#6b7280" }}>
-            No posts yet. Be the first to share!
+          <p style={styles.empty}>
+            No posts yet. Be the first to inspire the community 💚
           </p>
         ) : (
           posts.map((post) => (
-            <div
-              key={post.id}
-              style={{
-                background: "#ffffff",
-                padding: "18px",
-                borderRadius: "15px",
-                boxShadow: "0 6px 16px rgba(0,0,0,0.06)"
-              }}
-            >
-              <h4 style={{ margin: "0 0 6px 0" }}>{post.name}</h4>
+            <div key={post.id} style={styles.card}>
 
-              <p style={{ margin: "0 0 10px 0", color: "#374151" }}>
-                {post.message}
-              </p>
+              <div style={styles.header}>
+                <div style={styles.avatar}>
+                  {post.name?.charAt(0).toUpperCase()}
+                </div>
+
+                <div>
+                  <h4 style={styles.name}>{post.name}</h4>
+                  <span style={styles.time}>
+                    {new Date(post.createdAt).toLocaleDateString()}
+                  </span>
+                </div>
+              </div>
+
+              <p style={styles.message}>{post.message}</p>
 
               <button
                 onClick={() => handleLike(post)}
-                style={{
-                  background: "#f3f4f6",
-                  border: "none",
-                  padding: "6px 12px",
-                  borderRadius: "8px",
-                  cursor: "pointer"
-                }}
+                style={styles.likeButton}
               >
                 ❤️ {post.likes || 0}
               </button>
+
             </div>
           ))
         )}
       </div>
+
     </section>
   );
 }
+
+const styles = {
+
+container:{
+maxWidth:"900px",
+margin:"60px auto",
+padding:"20px",
+fontFamily:"Arial"
+},
+
+title:{
+textAlign:"center",
+fontSize:"36px",
+marginBottom:"5px",
+color:"#2f2f2f"
+},
+
+subtitle:{
+textAlign:"center",
+color:"#6b7280",
+marginBottom:"35px"
+},
+
+form:{
+background:"rgba(255,255,255,0.75)",
+backdropFilter:"blur(10px)",
+padding:"25px",
+borderRadius:"16px",
+boxShadow:"0 12px 30px rgba(0,0,0,0.08)",
+marginBottom:"35px"
+},
+
+input:{
+width:"100%",
+padding:"12px",
+marginBottom:"12px",
+borderRadius:"10px",
+border:"1px solid #e5e7eb",
+fontSize:"14px",
+color:"#374151",
+backgroundColor:"rgba(255,255,255,0.85)",
+outline:"none"
+},
+
+textarea:{
+width:"100%",
+padding:"12px",
+borderRadius:"10px",
+border:"1px solid #e5e7eb",
+marginBottom:"15px",
+resize:"none",
+color:"#374151",
+backgroundColor:"rgba(255,255,255,0.85)",
+outline:"none"
+},
+
+postButton:{
+background:"linear-gradient(135deg,#86793d,#b5a864)",
+color:"white",
+border:"none",
+padding:"10px 20px",
+borderRadius:"10px",
+cursor:"pointer",
+fontWeight:"600",
+boxShadow:"0 4px 12px rgba(0,0,0,0.15)"
+},
+
+feed:{
+display:"grid",
+gap:"18px"
+},
+
+card:{
+background:"rgba(255,255,255,0.8)",
+backdropFilter:"blur(8px)",
+padding:"18px",
+borderRadius:"16px",
+boxShadow:"0 10px 25px rgba(0,0,0,0.08)",
+transition:"0.3s"
+},
+
+header:{
+display:"flex",
+alignItems:"center",
+gap:"12px",
+marginBottom:"10px"
+},
+
+avatar:{
+width:"40px",
+height:"40px",
+borderRadius:"50%",
+background:"linear-gradient(135deg,#86793d,#b5a864)",
+display:"flex",
+alignItems:"center",
+justifyContent:"center",
+color:"white",
+fontWeight:"bold"
+},
+
+name:{
+margin:"0",
+fontSize:"15px"
+},
+
+time:{
+fontSize:"12px",
+color:"#9ca3af"
+},
+
+message:{
+margin:"8px 0 12px 0",
+color:"#374151"
+},
+
+likeButton:{
+background:"#f3f4f6",
+border:"none",
+padding:"6px 14px",
+borderRadius:"10px",
+cursor:"pointer",
+fontWeight:"500"
+},
+
+empty:{
+textAlign:"center",
+color:"#6b7280"
+}
+
+};
 
 export default CommunityFeed;

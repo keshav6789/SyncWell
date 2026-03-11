@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 function MentalHealthSection() {
   const quotes = [
@@ -9,23 +9,20 @@ function MentalHealthSection() {
     "Peace begins with a deep breath.",
     "Every day is a fresh start.",
     "Your mental health matters.",
-    "Growth takes time, keep going.",
-    "As long as you are alive, there are infinite chances.",
-    "Don't cry for what you lost, be grateful for what you have.",
-    "The world is cruel, but also very beautiful."
-  ];
+    "Growth takes time, keep going."
+  ]
 
-  const [quote, setQuote] = useState(quotes[0]);
-  const navigate = useNavigate();
+  const [quote, setQuote] = useState(quotes[0])
+  const navigate = useNavigate()
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const random = Math.floor(Math.random() * quotes.length);
-      setQuote(quotes[random]);
-    }, 5000);
+      const random = Math.floor(Math.random() * quotes.length)
+      setQuote(quotes[random])
+    }, 5000)
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(interval)
+  }, [])
 
   const cards = [
     {
@@ -64,18 +61,18 @@ function MentalHealthSection() {
        
       ]
     }
-  ];
+  ]
 
   const openPage = (path) => {
-    navigate(path);
-  };
+    navigate(path)
+  }
 
   const handleKeyDown = (event, path) => {
     if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      openPage(path);
+      event.preventDefault()
+      openPage(path)
     }
-  };
+  }
 
   return (
     <section style={styles.section}>
@@ -91,6 +88,7 @@ function MentalHealthSection() {
         Your browser does not support the video tag.
       </video>
 
+<<<<<<< HEAD
 
       <div style={styles.overlay} />
 =======
@@ -99,12 +97,15 @@ function MentalHealthSection() {
         <p style={styles.quote}>{quote}</p>
       </div>
 
+=======
+      <div style={styles.overlay} />
+>>>>>>> 886f94af9b3bc4567bbd2ab6b051904d580cf435
 
       <div style={styles.content}>
         <h1 style={styles.mainHeading}>Mental Health Support</h1>
 
         <div style={styles.quoteCard}>
-          <h3 style={styles.quoteHeading}>Daily Motivation</h3>
+          <h3>Daily Motivation</h3>
           <p style={styles.quote}>{quote}</p>
         </div>
 
@@ -133,7 +134,7 @@ function MentalHealthSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
 const styles = {
@@ -175,12 +176,8 @@ const styles = {
     boxShadow: "0 20px 40px rgba(34, 197, 94, 0.2)"
   },
   quote: {
-    fontSize: "30px",
+    fontSize: "20px",
     margin: 0
-  },
-  quoteHeading: {
-    fontSize: "32px",
-    marginBottom: "18px"
   },
   grid: {
     maxWidth: "900px",
@@ -201,7 +198,7 @@ const styles = {
   cardTitle: {
     marginTop: 0,
     marginBottom: "14px",
-    color: "#0f172a",
+    color: "#0a0f1b",
     fontSize: "34px"
   },
   cardDescription: {
@@ -221,6 +218,6 @@ const styles = {
   listItem: {
     marginBottom: "8px"
   }
-};
+}
 
-export default MentalHealthSection;
+export default MentalHealthSection
