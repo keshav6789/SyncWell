@@ -7,14 +7,12 @@ const quotes = [
 "You are stronger than your anxiety.",
 "Small progress is still progress.",
 "Peace begins with a deep breath.",
-"Every day is a fresh start.",
 "Your mental health matters.",
 "Growth takes time, keep going."
 ]
 
 const [quote,setQuote] = useState(quotes[0])
 
-// Auto change quote every 5 seconds
 useEffect(()=>{
 const interval = setInterval(()=>{
 const random = Math.floor(Math.random()*quotes.length)
@@ -31,66 +29,71 @@ return(
 
 <h1 style={styles.mainHeading}>🧠 Mental Health Support</h1>
 
-{/* Random Motivation Quote */}
-
+{/* Motivation Quote */}
 <div style={styles.quoteCard}>
 <h3>✨ Daily Motivation</h3>
 <p style={styles.quote}>{quote}</p>
 </div>
 
-{/* Overthinking Section */}
 
+{/* Overthinking */}
 <div style={styles.card}>
 <h2>🧠 Overthinking</h2>
 
 <p>
-Overthinking happens when the mind continuously analyzes the same thoughts.
-It can create stress and reduce productivity.
+Overthinking happens when the mind continuously analyzes situations or thoughts,
+which can create stress and anxiety.
 </p>
 
+<h4>How to Deal With Overthinking</h4>
+
 <ul>
-<li>Practice deep breathing</li>
-<li>Write your thoughts in a journal</li>
-<li>Focus on the present moment</li>
-<li>Limit negative self-talk</li>
+<li>Practice mindfulness and focus on the present moment.</li>
+<li>Write your thoughts in a journal.</li>
+<li>Limit negative self-talk.</li>
+<li>Take breaks and do relaxing activities.</li>
 </ul>
 
 </div>
 
-{/* Anxiety Section */}
 
+{/* Anxiety */}
 <div style={styles.card}>
 <h2>😌 Anxiety</h2>
 
 <p>
-Anxiety is a natural response to stress, but when it becomes excessive it can
-affect daily life and mental well-being.
+Anxiety is a feeling of worry or fear that can affect how you think,
+feel and behave.
 </p>
 
+<h4>How to Manage Anxiety</h4>
+
 <ul>
-<li>Try mindfulness meditation</li>
-<li>Take slow deep breaths</li>
-<li>Exercise regularly</li>
-<li>Talk with supportive people</li>
+<li>Practice deep breathing exercises.</li>
+<li>Exercise regularly.</li>
+<li>Talk with friends, family or a therapist.</li>
+<li>Reduce caffeine and improve sleep habits.</li>
 </ul>
 
 </div>
 
-{/* Self Concept Section */}
 
+{/* Depression */}
 <div style={styles.card}>
-<h2>🌱 Self Concept</h2>
+<h2>🌿 Depression</h2>
 
 <p>
-Self concept is the way you see and understand yourself. A healthy self concept
-helps build confidence, emotional stability and better decision making.
+Depression can cause feelings of sadness, lack of motivation and loss of
+interest in daily activities.
 </p>
 
+<h4>Ways to Cope With Depression</h4>
+
 <ul>
-<li>Accept yourself and your imperfections</li>
-<li>Focus on personal growth</li>
-<li>Set realistic goals</li>
-<li>Practice positive self-talk</li>
+<li>Stay connected with supportive people.</li>
+<li>Create small achievable daily goals.</li>
+<li>Exercise or take short walks.</li>
+<li>Seek professional help when needed.</li>
 </ul>
 
 </div>

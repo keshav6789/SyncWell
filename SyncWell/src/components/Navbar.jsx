@@ -10,7 +10,7 @@ function Navbar() {
         <Link to="/">Home</Link>
         <Link to="/mental">Mental Health</Link>
         <Link to="/physical">Physical Health</Link>
-        <Link to="/tracker">Habit Tracker</Link>
+        {/* <Link to="/tracker">Habit Tracker</Link> */}
         <Link to="/account">Account</Link>
       </div>
 
@@ -24,7 +24,7 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     padding: "15px 40px",
-    backgroundColor: "#22c55e",
+    backgroundColor: "#3cd43fc7",
     color: "white",
   },
 
