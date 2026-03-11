@@ -14,7 +14,15 @@ function SelfConceptPage() {
       solutionPoints={[
         "Positive self-reflection helps build a more realistic and compassionate view of yourself.",
         "Tracking wins, habits, and effort over time helps confidence grow from evidence instead of mood.",
-        "Supportive people, therapy, and journaling can improve self-awareness and emotional stability."
+        "Supportive people, therapy, and journaling can improve self-awareness and emotional stability.",
+        "Reach out to someone you trust",
+        "Follow a simple daily routine",
+        "Spend time in sunlight and fresh air",
+        "Seek professional support when needed",
+         "Accept yourself and your imperfections",
+        "Focus on personal growth",
+        "Set realistic goals",
+        "Practice positive self-talk"
       ]}
       imageLabel="Add a self concept-related image here later"
     >

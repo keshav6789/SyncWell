@@ -33,7 +33,7 @@ function Footer() {
 
 const styles = {
   footer: {
-    backgroundColor: "#0f172a",
+    backgroundColor: "#86793d",
     color: "white",
     padding: "40px 20px",
     marginTop: "60px",

@@ -1,7 +1,7 @@
 import Hero from "../components/Hero";
 import FeatureCards from "../components/FeatureCards";
 // import MotivationQuotes from "../components/MotivationQuotes";
-import MotivationQuotes from "../components/MotivationQuotes";
+// import MotivationQuotes from "../components/MotivationQuotes";
 import CommunityFeed from "../components/CommunityFeed";
 import colors from "../theme/colors";
 function Home() {
@@ -26,7 +26,7 @@ function Home() {
         {/* <MotivationQuotes /> */}
       </section>
 
-      <MotivationQuotes />
+      {/* <MotivationQuotes /> */}
 
       {/* <MotivationQuotes /> */}
 

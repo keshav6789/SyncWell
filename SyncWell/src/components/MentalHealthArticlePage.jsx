@@ -10,6 +10,8 @@ function MentalHealthArticlePage({
   mediaSrc = "",
   pageStyle = {},
   heroCardStyle = {},
+  mediaFrameStyle = {},
+  mediaStyle = {},
   children
 }) {
   const videoRef = useRef(null)
@@ -34,16 +36,16 @@ function MentalHealthArticlePage({
     <section style={{ ...styles.page, ...pageStyle }}>
       <div style={{ ...styles.heroCard, ...heroCardStyle }}>
         <div style={styles.copyColumn}>
-          <p style={styles.eyebrow}>Mental Health</p>
+          {/* <p style={styles.eyebrow}>Mental Health</p> */}
           <h1 style={styles.title}>{title}</h1>
           <p style={styles.intro}>{intro}</p>
         </div>
 
         {mediaType === "video" && mediaSrc ? (
-          <div style={styles.mediaFrame}>
+          <div style={{ ...styles.mediaFrame, ...mediaFrameStyle }}>
             <video
               ref={videoRef}
-              style={styles.media}
+              style={{ ...styles.media, ...mediaStyle }}
               autoPlay
               loop
               muted
