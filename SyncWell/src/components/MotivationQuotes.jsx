@@ -76,7 +76,22 @@ function MentalHealthSection() {
         Your browser does not support the video tag.
       </video>
 
+<<<<<<< HEAD
       <div style={styles.overlay} />
+=======
+
+
+      <div style={styles.overlay} />
+
+      <div style={styles.quoteCard}>
+        <h3>✨ Daily Motivation</h3>
+        <p style={styles.quote}>{quote}</p>
+      </div>
+
+
+      <div style={styles.overlay} />
+
+>>>>>>> fd2a0cfd406a2a9e5a4ddb2e920c4bf1ca549d51
 
       <div style={styles.content}>
         <h1 style={styles.mainHeading}>Mental Health Support</h1>
