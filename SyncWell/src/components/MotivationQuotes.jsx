@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function MentalHealthSection() {
   const quotes = [
@@ -9,20 +9,23 @@ function MentalHealthSection() {
     "Peace begins with a deep breath.",
     "Every day is a fresh start.",
     "Your mental health matters.",
-    "Growth takes time, keep going."
-  ]
+    "Growth takes time, keep going.",
+    "As long as you are alive, there are infinite chances.",
+    "Don't cry for what you lost, be grateful for what you have.",
+    "The world is cruel, but also very beautiful."
+  ];
 
-  const [quote, setQuote] = useState(quotes[0])
-  const navigate = useNavigate()
+  const [quote, setQuote] = useState(quotes[0]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const random = Math.floor(Math.random() * quotes.length)
-      setQuote(quotes[random])
-    }, 5000)
+      const random = Math.floor(Math.random() * quotes.length);
+      setQuote(quotes[random]);
+    }, 5000);
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   const cards = [
     {
@@ -61,18 +64,18 @@ function MentalHealthSection() {
        
       ]
     }
-  ]
+  ];
 
   const openPage = (path) => {
-    navigate(path)
-  }
+    navigate(path);
+  };
 
   const handleKeyDown = (event, path) => {
     if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault()
-      openPage(path)
+      event.preventDefault();
+      openPage(path);
     }
-  }
+  };
 
   return (
     <section style={styles.section}>
@@ -88,7 +91,14 @@ function MentalHealthSection() {
         Your browser does not support the video tag.
       </video>
 
+<<<<<<< HEAD
       <div style={styles.overlay} />
+=======
+      <div style={styles.quoteCard}>
+        <h3>✨ Daily Motivation</h3>
+        <p style={styles.quote}>{quote}</p>
+      </div>
+>>>>>>> 2d1497f57207d8fbd066956f02534703d91006e7
 
       <div style={styles.content}>
         <h1 style={styles.mainHeading}>Mental Health Support</h1>
@@ -123,7 +133,7 @@ function MentalHealthSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 const styles = {
@@ -211,6 +221,6 @@ const styles = {
   listItem: {
     marginBottom: "8px"
   }
-}
+};
 
-export default MentalHealthSection
+export default MentalHealthSection;

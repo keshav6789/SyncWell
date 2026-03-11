@@ -71,8 +71,8 @@ function Workout() {
       if (!isToday) {
         setInfoMessage(
           selectedDateDocs.length > 0
-            ? "Viewing a past date. Session history is shown below."
-            : "No workout session found for this date."
+            ? "Viewing a previous date. Your saved session history is shown below."
+            : "No workout session was found for this date."
         );
       } else if (selectedDateDocs.length >= workoutPlan.length) {
         setInfoMessage(
@@ -84,7 +84,7 @@ function Workout() {
         );
       } else {
         setInfoMessage(
-          "Start your workout. Only one guided session is allowed per day for safety."
+          "Start your workout session. Only one guided session is allowed per day for safety."
         );
       }
 
@@ -99,6 +99,7 @@ function Workout() {
       const groupedSessions = Object.values(
         allDocs.reduce((acc, item) => {
           const date = item.sessionDate;
+
           if (!acc[date]) {
             acc[date] = {
               sessionDate: date,
@@ -137,12 +138,13 @@ function Workout() {
 
   const currentWorkout =
     workoutPlan[Math.min(currentIndex, workoutPlan.length - 1)];
+
   const reps = Math.round(currentWorkout.baseReps * multiplier);
   const progressPercent = (dailyWorkoutCount / workoutPlan.length) * 100;
 
   const saveProgress = async (status = "completed") => {
     if (!isToday) {
-      setInfoMessage("You can only perform a live guided session for today's date.");
+      setInfoMessage("You can only perform a live workout for today's date.");
       return;
     }
 
@@ -184,333 +186,130 @@ function Workout() {
   };
 
   return (
-    <section
-      style={{
-        maxWidth: "980px",
-        margin: "40px auto",
-        padding: "24px",
-        fontFamily: "Arial, sans-serif",
-      }}
-    >
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1.3fr 0.9fr",
-          gap: "20px",
-        }}
-      >
-        <div
-          style={{
-            borderRadius: "24px",
-            background: "linear-gradient(135deg, #eff6ff, #ffffff)",
-            boxShadow: "0 12px 35px rgba(0,0,0,0.08)",
-            padding: "28px",
-          }}
-        >
-          <h2
-            style={{
-              textAlign: "center",
-              fontSize: "30px",
-              marginBottom: "8px",
-              color: "#111827",
-            }}
-          >
-            Smart Workout Coach
-          </h2>
+    <section style={styles.page}>
+      <div style={styles.bgCircleOne}></div>
+      <div style={styles.bgCircleTwo}></div>
 
-          <p
-            style={{
-              textAlign: "center",
-              color: "#6b7280",
-              marginBottom: "18px",
-            }}
-          >
-            Safer training with one guided session per day
-          </p>
+      <div style={styles.hero}>
+        <div style={styles.heroBadge}>Fitness Dashboard</div>
+        <h1 style={styles.heroTitle}>Level Up Your Physical Health</h1>
+        <p style={styles.heroSubtitle}>
+          Track your workout session, monitor calories, and build daily fitness
+          consistency with a cleaner and smarter dashboard experience.
+        </p>
+      </div>
 
-          <div
-            style={{
-              background: "#ffffff",
-              borderRadius: "18px",
-              padding: "18px",
-              marginBottom: "18px",
-              boxShadow: "0 6px 18px rgba(0,0,0,0.05)",
-            }}
-          >
-            <label
-              style={{
-                display: "block",
-                fontWeight: "bold",
-                marginBottom: "8px",
-                color: "#1f2937",
-              }}
-            >
-              Select Date
-            </label>
+      <div style={styles.mainGrid}>
+        <div style={styles.leftPanel}>
+          <div style={styles.cardHeader}>
+            <h2 style={styles.coachTitle}>Smart Workout Coach</h2>
+            <p style={styles.coachSubtitle}>
+              Safer training with one guided session per day
+            </p>
+          </div>
+
+          <div style={styles.inputCard}>
+            <label style={styles.label}>Select Date</label>
 
             <input
               type="date"
               value={selectedDate}
               max={today}
               onChange={(e) => setSelectedDate(e.target.value)}
-              style={{
-                width: "100%",
-                padding: "12px",
-                borderRadius: "12px",
-                border: "1px solid #d1d5db",
-                fontSize: "15px",
-                boxSizing: "border-box",
-              }}
+              style={styles.input}
             />
 
-            <p
-              style={{
-                marginTop: "12px",
-                marginBottom: 0,
-                color: "#4b5563",
-                fontSize: "14px",
-              }}
-            >
-              {infoMessage}
-            </p>
+            <p style={styles.infoText}>{infoMessage}</p>
           </div>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
-              gap: "12px",
-              marginBottom: "18px",
-            }}
-          >
-            <div
-              style={{
-                background: "#ffffff",
-                padding: "16px",
-                borderRadius: "16px",
-                boxShadow: "0 6px 16px rgba(0,0,0,0.05)",
-              }}
-            >
-              <p style={{ margin: 0, fontSize: "13px", color: "#6b7280" }}>
-                Total Session Days
-              </p>
-              <h3 style={{ margin: "8px 0 0", color: "#111827" }}>
-                {progressDays}
-              </h3>
+          <div style={styles.statsGrid}>
+            <div style={styles.statCard}>
+              <p style={styles.statLabel}>Total Session Days</p>
+              <h3 style={styles.statValue}>{progressDays}</h3>
             </div>
 
-            <div
-              style={{
-                background: "#ffffff",
-                padding: "16px",
-                borderRadius: "16px",
-                boxShadow: "0 6px 16px rgba(0,0,0,0.05)",
-              }}
-            >
-              <p style={{ margin: 0, fontSize: "13px", color: "#6b7280" }}>
-                Progress Boost
-              </p>
-              <h3 style={{ margin: "8px 0 0", color: "#111827" }}>
-                x{multiplier.toFixed(1)}
-              </h3>
+            <div style={styles.statCard}>
+              <p style={styles.statLabel}>Progress Boost</p>
+              <h3 style={styles.statValue}>x{multiplier.toFixed(1)}</h3>
             </div>
 
-            <div
-              style={{
-                background: "#ffffff",
-                padding: "16px",
-                borderRadius: "16px",
-                boxShadow: "0 6px 16px rgba(0,0,0,0.05)",
-              }}
-            >
-              <p style={{ margin: 0, fontSize: "13px", color: "#6b7280" }}>
-                Calories Today
-              </p>
-              <h3 style={{ margin: "8px 0 0", color: "#111827" }}>
-                {dailyCalories}
-              </h3>
+            <div style={styles.statCard}>
+              <p style={styles.statLabel}>Calories Today</p>
+              <h3 style={styles.statValue}>{dailyCalories}</h3>
             </div>
           </div>
 
-          <div style={{ marginBottom: "20px" }}>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                marginBottom: "8px",
-                fontSize: "14px",
-                color: "#374151",
-              }}
-            >
+          <div style={styles.progressCard}>
+            <div style={styles.progressRow}>
               <span>
                 Session Progress {dailyWorkoutCount} / {workoutPlan.length}
               </span>
               <span>{Math.round(progressPercent)}%</span>
             </div>
 
-            <div
-              style={{
-                width: "100%",
-                height: "10px",
-                background: "#e5e7eb",
-                borderRadius: "999px",
-                overflow: "hidden",
-              }}
-            >
+            <div style={styles.progressTrack}>
               <div
                 style={{
+                  ...styles.progressFill,
                   width: `${progressPercent}%`,
-                  height: "100%",
-                  background: "linear-gradient(90deg, #3b82f6, #22c55e)",
-                  borderRadius: "999px",
-                  transition: "width 0.3s ease",
                 }}
               />
             </div>
           </div>
 
           {sessionComplete ? (
-            <div
-              style={{
-                background: "linear-gradient(135deg, #dbeafe, #f0fdf4)",
-                borderRadius: "20px",
-                padding: "30px",
-                textAlign: "center",
-              }}
-            >
-              <h3
-                style={{
-                  fontSize: "28px",
-                  marginBottom: "10px",
-                  color: "#111827",
-                }}
-              >
-                Session Complete 🎉
-              </h3>
-              <p style={{ fontSize: "16px", color: "#374151" }}>
+            <div style={styles.completeCard}>
+              <h3 style={styles.completeTitle}>Session Complete 🎉</h3>
+              <p style={styles.completeText}>
                 Great job. You finished your guided session for {selectedDate}.
               </p>
-              <p
-                style={{
-                  marginTop: "10px",
-                  fontWeight: "bold",
-                  color: "#2563eb",
-                }}
-              >
+              <p style={styles.completeNote}>
                 For safety, the next session unlocks tomorrow.
               </p>
             </div>
           ) : (
-            <div
-              style={{
-                background: "#ffffff",
-                borderRadius: "18px",
-                padding: "24px",
-                boxShadow: "0 8px 20px rgba(0,0,0,0.06)",
-                textAlign: "center",
-              }}
-            >
+            <div style={styles.workoutCard}>
               <div
                 style={{
-                  display: "inline-block",
-                  padding: "6px 14px",
-                  borderRadius: "999px",
+                  ...styles.difficultyBadge,
                   background: getDifficultyColor(currentWorkout.difficulty),
-                  color: "#ffffff",
-                  fontWeight: "bold",
-                  fontSize: "13px",
-                  marginBottom: "16px",
                 }}
               >
                 {currentWorkout.difficulty}
               </div>
 
-              <h3
-                style={{
-                  fontSize: "26px",
-                  marginBottom: "14px",
-                  color: "#1f2937",
-                }}
-              >
-                {currentWorkout.name}
-              </h3>
+              <h3 style={styles.exerciseTitle}>{currentWorkout.name}</h3>
 
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: "12px",
-                  marginBottom: "20px",
-                }}
-              >
-                <div
-                  style={{
-                    background: "#f9fafb",
-                    padding: "14px",
-                    borderRadius: "14px",
-                  }}
-                >
-                  <p style={{ margin: 0, fontSize: "13px", color: "#6b7280" }}>
-                    Target
-                  </p>
-                  <p
-                    style={{
-                      margin: "6px 0 0",
-                      fontWeight: "bold",
-                      fontSize: "20px",
-                    }}
-                  >
+              <div style={styles.exerciseStats}>
+                <div style={styles.exerciseMiniCard}>
+                  <p style={styles.exerciseMiniLabel}>Target</p>
+                  <p style={styles.exerciseMiniValue}>
                     {reps} {currentWorkout.unit || "reps"}
                   </p>
                 </div>
 
-                <div
-                  style={{
-                    background: "#f9fafb",
-                    padding: "14px",
-                    borderRadius: "14px",
-                  }}
-                >
-                  <p style={{ margin: 0, fontSize: "13px", color: "#6b7280" }}>
-                    Calories
-                  </p>
-                  <p
-                    style={{
-                      margin: "6px 0 0",
-                      fontWeight: "bold",
-                      fontSize: "20px",
-                    }}
-                  >
+                <div style={styles.exerciseMiniCard}>
+                  <p style={styles.exerciseMiniLabel}>Calories</p>
+                  <p style={styles.exerciseMiniValue}>
                     {currentWorkout.calories}
                   </p>
                 </div>
               </div>
 
-              <p style={{ color: "#4b5563", marginBottom: "20px" }}>
-                Complete this exercise and move to the next one. Reps increase
-                gradually over time based on past session days.
+              <p style={styles.exerciseDescription}>
+                Complete this exercise and move to the next one. Repetitions
+                increase gradually over time based on your previous workout
+                consistency.
               </p>
 
-              <div
-                style={{
-                  display: "flex",
-                  gap: "12px",
-                  justifyContent: "center",
-                  flexWrap: "wrap",
-                }}
-              >
+              <div style={styles.buttonRow}>
                 <button
                   onClick={() => saveProgress("completed")}
                   disabled={loading || !isToday}
                   style={{
-                    border: "none",
-                    padding: "12px 22px",
-                    borderRadius: "12px",
-                    background: loading || !isToday ? "#93c5fd" : "#2563eb",
-                    color: "#ffffff",
-                    fontWeight: "bold",
+                    ...styles.primaryButton,
+                    opacity: loading || !isToday ? 0.7 : 1,
                     cursor: loading || !isToday ? "not-allowed" : "pointer",
-                    minWidth: "140px",
                   }}
                 >
                   {loading ? "Saving..." : "Completed"}
@@ -520,14 +319,9 @@ function Workout() {
                   onClick={() => saveProgress("skipped")}
                   disabled={loading || !isToday}
                   style={{
-                    border: "none",
-                    padding: "12px 22px",
-                    borderRadius: "12px",
-                    background: loading || !isToday ? "#d1d5db" : "#e5e7eb",
-                    color: "#111827",
-                    fontWeight: "bold",
+                    ...styles.secondaryButton,
+                    opacity: loading || !isToday ? 0.7 : 1,
                     cursor: loading || !isToday ? "not-allowed" : "pointer",
-                    minWidth: "120px",
                   }}
                 >
                   Skip
@@ -537,110 +331,47 @@ function Workout() {
           )}
         </div>
 
-        <div
-          style={{
-            borderRadius: "24px",
-            background: "#ffffff",
-            boxShadow: "0 12px 35px rgba(0,0,0,0.08)",
-            padding: "24px",
-            height: "fit-content",
-          }}
-        >
-          <h3 style={{ marginTop: 0, color: "#111827" }}>Session Summary</h3>
+        <div style={styles.rightPanel}>
+          <h3 style={styles.summaryTitle}>Session Summary</h3>
 
-          <div
-            style={{
-              display: "grid",
-              gap: "12px",
-              marginBottom: "20px",
-            }}
-          >
-            <div
-              style={{
-                background: "#f8fafc",
-                borderRadius: "14px",
-                padding: "14px",
-              }}
-            >
-              <p style={{ margin: 0, color: "#6b7280", fontSize: "13px" }}>
-                Selected Date
-              </p>
-              <h4 style={{ margin: "8px 0 0", color: "#111827" }}>
-                {selectedDate}
-              </h4>
+          <div style={styles.summaryGrid}>
+            <div style={styles.summaryCard}>
+              <p style={styles.summaryLabel}>Selected Date</p>
+              <h4 style={styles.summaryValue}>{selectedDate}</h4>
             </div>
 
-            <div
-              style={{
-                background: "#f8fafc",
-                borderRadius: "14px",
-                padding: "14px",
-              }}
-            >
-              <p style={{ margin: 0, color: "#6b7280", fontSize: "13px" }}>
-                Completed Exercises
-              </p>
-              <h4 style={{ margin: "8px 0 0", color: "#111827" }}>
-                {dailyCompletedCount}
-              </h4>
+            <div style={styles.summaryCard}>
+              <p style={styles.summaryLabel}>Completed Exercises</p>
+              <h4 style={styles.summaryValue}>{dailyCompletedCount}</h4>
             </div>
 
-            <div
-              style={{
-                background: "#f8fafc",
-                borderRadius: "14px",
-                padding: "14px",
-              }}
-            >
-              <p style={{ margin: 0, color: "#6b7280", fontSize: "13px" }}>
-                Saved Workout Steps
-              </p>
-              <h4 style={{ margin: "8px 0 0", color: "#111827" }}>
-                {dailyWorkoutCount}
-              </h4>
+            <div style={styles.summaryCard}>
+              <p style={styles.summaryLabel}>Saved Workout Steps</p>
+              <h4 style={styles.summaryValue}>{dailyWorkoutCount}</h4>
             </div>
           </div>
 
-          <h3 style={{ color: "#111827", marginBottom: "12px" }}>
-            Recent Sessions
-          </h3>
+          <h3 style={styles.summaryTitle}>Recent Sessions</h3>
 
           {recentSessions.length === 0 ? (
-            <p style={{ color: "#6b7280", margin: 0 }}>
-              No workout history yet.
-            </p>
+            <p style={styles.emptyText}>No workout history yet.</p>
           ) : (
-            <div style={{ display: "grid", gap: "12px" }}>
+            <div style={styles.recentList}>
               {recentSessions.map((session) => (
-                <div
-                  key={session.sessionDate}
-                  style={{
-                    background: "#f9fafb",
-                    borderRadius: "14px",
-                    padding: "14px",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      gap: "10px",
-                      marginBottom: "8px",
-                      flexWrap: "wrap",
-                    }}
-                  >
-                    <strong style={{ color: "#111827" }}>
+                <div key={session.sessionDate} style={styles.recentCard}>
+                  <div style={styles.recentTop}>
+                    <strong style={styles.recentDate}>
                       {session.sessionDate}
                     </strong>
-                    <span style={{ color: "#2563eb", fontWeight: "bold" }}>
+                    <span style={styles.recentDone}>
                       {session.completedExercises}/{workoutPlan.length} done
                     </span>
                   </div>
 
-                  <p style={{ margin: "4px 0", color: "#4b5563", fontSize: "14px" }}>
+                  <p style={styles.recentText}>
                     Skipped: {session.skippedExercises}
                   </p>
-                  <p style={{ margin: "4px 0", color: "#4b5563", fontSize: "14px" }}>
+                  <p style={styles.recentText}>
                     Calories: {session.totalCalories}
                   </p>
                 </div>
@@ -652,5 +383,407 @@ function Workout() {
     </section>
   );
 }
+
+const styles = {
+  page: {
+    position: "relative",
+    padding: "30px 20px 70px",
+    background: "linear-gradient(180deg, #f8fbff 0%, #eef5ff 45%, #eefaf1 100%)",
+    minHeight: "100vh",
+    overflow: "hidden",
+  },
+
+  bgCircleOne: {
+    position: "absolute",
+    top: "80px",
+    left: "-120px",
+    width: "320px",
+    height: "320px",
+    borderRadius: "50%",
+    background: "rgba(59,130,246,0.10)",
+    filter: "blur(10px)",
+    zIndex: 0,
+  },
+
+  bgCircleTwo: {
+    position: "absolute",
+    top: "180px",
+    right: "-100px",
+    width: "280px",
+    height: "280px",
+    borderRadius: "50%",
+    background: "rgba(34,197,94,0.10)",
+    filter: "blur(10px)",
+    zIndex: 0,
+  },
+
+  hero: {
+    position: "relative",
+    zIndex: 1,
+    maxWidth: "1000px",
+    margin: "0 auto 30px",
+    textAlign: "center",
+  },
+
+  heroBadge: {
+    display: "inline-block",
+    padding: "8px 16px",
+    borderRadius: "999px",
+    background: "#dbeafe",
+    color: "#1d4ed8",
+    fontWeight: "bold",
+    fontSize: "14px",
+    marginBottom: "14px",
+  },
+
+  heroTitle: {
+    margin: "0 0 12px",
+    fontSize: "52px",
+    color: "#0f172a",
+    lineHeight: "1.1",
+  },
+
+  heroSubtitle: {
+    margin: "0 auto",
+    maxWidth: "760px",
+    color: "#475569",
+    fontSize: "18px",
+    lineHeight: "1.8",
+  },
+
+  mainGrid: {
+    position: "relative",
+    zIndex: 1,
+    maxWidth: "1250px",
+    margin: "0 auto",
+    display: "grid",
+    gridTemplateColumns: "1.7fr 1fr",
+    gap: "28px",
+    alignItems: "start",
+  },
+
+  leftPanel: {
+    background: "rgba(255,255,255,0.72)",
+    borderRadius: "30px",
+    padding: "30px",
+    backdropFilter: "blur(10px)",
+    boxShadow: "0 20px 50px rgba(15, 23, 42, 0.08)",
+    border: "1px solid rgba(255,255,255,0.9)",
+  },
+
+  rightPanel: {
+    background: "rgba(255,255,255,0.92)",
+    borderRadius: "30px",
+    padding: "26px",
+    boxShadow: "0 20px 50px rgba(15, 23, 42, 0.08)",
+    border: "1px solid #e2e8f0",
+    backdropFilter: "blur(6px)",
+  },
+
+  cardHeader: {
+    textAlign: "center",
+    marginBottom: "24px",
+  },
+
+  coachTitle: {
+    margin: "0 0 10px",
+    fontSize: "56px",
+    lineHeight: "1.1",
+    color: "#0f172a",
+  },
+
+  coachSubtitle: {
+    margin: 0,
+    color: "#64748b",
+    fontSize: "18px",
+  },
+
+  inputCard: {
+    background: "linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)",
+    borderRadius: "24px",
+    padding: "24px",
+    marginBottom: "22px",
+    boxShadow: "0 12px 28px rgba(15, 23, 42, 0.05)",
+    border: "1px solid #eef2f7",
+  },
+
+  label: {
+    display: "block",
+    fontWeight: "bold",
+    marginBottom: "12px",
+    fontSize: "18px",
+    color: "#111827",
+  },
+
+  input: {
+    width: "100%",
+    padding: "16px",
+    borderRadius: "16px",
+    border: "1px solid #cbd5e1",
+    fontSize: "16px",
+    boxSizing: "border-box",
+    background: "#f8fafc",
+    outline: "none",
+  },
+
+  infoText: {
+    marginTop: "14px",
+    marginBottom: 0,
+    color: "#475569",
+    lineHeight: "1.7",
+    fontSize: "15px",
+  },
+
+  statsGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(3, 1fr)",
+    gap: "16px",
+    marginBottom: "22px",
+  },
+
+  statCard: {
+    background: "linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)",
+    padding: "20px",
+    borderRadius: "22px",
+    boxShadow: "0 10px 24px rgba(15, 23, 42, 0.05)",
+    border: "1px solid #eef2f7",
+    transition: "transform 0.25s ease",
+  },
+
+  statLabel: {
+    margin: 0,
+    color: "#64748b",
+    fontSize: "15px",
+  },
+
+  statValue: {
+    margin: "12px 0 0",
+    fontSize: "44px",
+    color: "#0f172a",
+    fontWeight: "bold",
+  },
+
+  progressCard: {
+    background: "linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)",
+    padding: "20px",
+    borderRadius: "22px",
+    marginBottom: "22px",
+    boxShadow: "0 10px 24px rgba(15, 23, 42, 0.05)",
+    border: "1px solid #eef2f7",
+  },
+
+  progressRow: {
+    display: "flex",
+    justifyContent: "space-between",
+    marginBottom: "12px",
+    color: "#334155",
+    fontWeight: "bold",
+    fontSize: "15px",
+  },
+
+  progressTrack: {
+    width: "100%",
+    height: "14px",
+    background: "#e2e8f0",
+    borderRadius: "999px",
+    overflow: "hidden",
+  },
+
+  progressFill: {
+    height: "100%",
+    background: "linear-gradient(90deg, #3b82f6, #22c55e)",
+    borderRadius: "999px",
+    transition: "width 0.4s ease",
+    boxShadow: "0 0 16px rgba(59,130,246,0.25)",
+  },
+
+  workoutCard: {
+    background: "linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)",
+    borderRadius: "26px",
+    padding: "30px",
+    boxShadow: "0 14px 30px rgba(15, 23, 42, 0.06)",
+    textAlign: "center",
+    border: "1px solid #eef2f7",
+  },
+
+  difficultyBadge: {
+    display: "inline-block",
+    padding: "8px 18px",
+    borderRadius: "999px",
+    color: "#ffffff",
+    fontWeight: "bold",
+    fontSize: "13px",
+    marginBottom: "18px",
+    boxShadow: "0 10px 20px rgba(0,0,0,0.12)",
+  },
+
+  exerciseTitle: {
+    fontSize: "34px",
+    margin: "0 0 18px",
+    color: "#111827",
+  },
+
+  exerciseStats: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "14px",
+    marginBottom: "22px",
+  },
+
+  exerciseMiniCard: {
+    background: "#f8fafc",
+    padding: "18px",
+    borderRadius: "18px",
+    border: "1px solid #e2e8f0",
+  },
+
+  exerciseMiniLabel: {
+    margin: 0,
+    fontSize: "14px",
+    color: "#64748b",
+  },
+
+  exerciseMiniValue: {
+    margin: "8px 0 0",
+    fontWeight: "bold",
+    fontSize: "24px",
+    color: "#0f172a",
+  },
+
+  exerciseDescription: {
+    color: "#475569",
+    lineHeight: "1.8",
+    marginBottom: "22px",
+    fontSize: "15px",
+  },
+
+  buttonRow: {
+    display: "flex",
+    justifyContent: "center",
+    gap: "14px",
+    flexWrap: "wrap",
+  },
+
+  primaryButton: {
+    border: "none",
+    padding: "14px 28px",
+    borderRadius: "14px",
+    background: "linear-gradient(90deg, #2563eb, #3b82f6)",
+    color: "#ffffff",
+    fontWeight: "bold",
+    fontSize: "15px",
+    minWidth: "150px",
+    boxShadow: "0 12px 24px rgba(37, 99, 235, 0.28)",
+  },
+
+  secondaryButton: {
+    border: "1px solid #cbd5e1",
+    padding: "14px 28px",
+    borderRadius: "14px",
+    background: "#f8fafc",
+    color: "#0f172a",
+    fontWeight: "bold",
+    fontSize: "15px",
+    minWidth: "120px",
+  },
+
+  completeCard: {
+    background: "linear-gradient(135deg, #dbeafe, #dcfce7)",
+    borderRadius: "26px",
+    padding: "36px 24px",
+    textAlign: "center",
+    boxShadow: "0 14px 30px rgba(15, 23, 42, 0.06)",
+  },
+
+  completeTitle: {
+    margin: "0 0 12px",
+    fontSize: "34px",
+    color: "#0f172a",
+  },
+
+  completeText: {
+    margin: "0 0 10px",
+    color: "#334155",
+    fontSize: "16px",
+  },
+
+  completeNote: {
+    margin: 0,
+    color: "#2563eb",
+    fontWeight: "bold",
+  },
+
+  summaryTitle: {
+    marginTop: 0,
+    marginBottom: "16px",
+    color: "#0f172a",
+    fontSize: "34px",
+  },
+
+  summaryGrid: {
+    display: "grid",
+    gap: "14px",
+    marginBottom: "24px",
+  },
+
+  summaryCard: {
+    background: "linear-gradient(180deg, #f8fbff 0%, #f8fafc 100%)",
+    borderRadius: "18px",
+    padding: "18px",
+    border: "1px solid #e2e8f0",
+  },
+
+  summaryLabel: {
+    margin: 0,
+    color: "#64748b",
+    fontSize: "15px",
+  },
+
+  summaryValue: {
+    margin: "10px 0 0",
+    color: "#0f172a",
+    fontSize: "26px",
+  },
+
+  recentList: {
+    display: "grid",
+    gap: "14px",
+  },
+
+  recentCard: {
+    background: "linear-gradient(180deg, #f8fbff 0%, #f8fafc 100%)",
+    borderRadius: "18px",
+    padding: "18px",
+    border: "1px solid #e2e8f0",
+  },
+
+  recentTop: {
+    display: "flex",
+    justifyContent: "space-between",
+    gap: "10px",
+    marginBottom: "8px",
+    flexWrap: "wrap",
+  },
+
+  recentDate: {
+    color: "#0f172a",
+    fontSize: "18px",
+  },
+
+  recentDone: {
+    color: "#2563eb",
+    fontWeight: "bold",
+  },
+
+  recentText: {
+    margin: "6px 0",
+    color: "#475569",
+  },
+
+  emptyText: {
+    color: "#64748b",
+    margin: 0,
+  },
+};
 
 export default Workout;

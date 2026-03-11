@@ -6,7 +6,7 @@ function MentalHealth(){
 return(
 
 <>
-<h1>Mental Health</h1>
+{/* <h1>Mental Health</h1> */}
 
 <MotivationQuotes/>
 
