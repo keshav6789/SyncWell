@@ -11,7 +11,7 @@ function Navbar() {
         <Link to="/" className="nav-btn">Home</Link>
         <Link to="/mental" className="nav-btn">Mental Health</Link>
         <Link to="/physical" className="nav-btn">Physical Health</Link>
-        <Link to="/tracker" className="nav-btn">Habit Tracker</Link>
+        {/* <Link to="/tracker" className="nav-btn">Habit Tracker</Link> */}
         <Link to="/account" className="nav-btn">Account</Link>
       </div>
 
