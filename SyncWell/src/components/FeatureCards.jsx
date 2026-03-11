@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import mentalImg from "../assets/mental.png";
 import physicalImg from "../assets/physical.png";
 import habitImg from "../assets/habits.png";
+import "./FeatureCards.css";
 
 function FeatureCards() {
   return (
@@ -12,7 +13,7 @@ function FeatureCards() {
 
       <div style={styles.cards}>
 
-        <div style={styles.card}>
+        <div style={styles.card} className="feature-card">
           <img src={mentalImg} style={styles.image} />
 
           <h3>🧠 Mental Health</h3>
@@ -26,7 +27,7 @@ function FeatureCards() {
           </Link>
         </div>
 
-        <div style={styles.card}>
+        <div style={styles.card} className="feature-card">
           <img src={physicalImg} style={styles.image} />
 
           <h3>💪 Physical Health</h3>
@@ -40,7 +41,7 @@ function FeatureCards() {
           </Link>
         </div>
 
-        <div style={styles.card}>
+        <div style={styles.card} className="feature-card">
           <img src={habitImg} style={styles.image} />
 
           <h3>📊 Habit Tracker</h3>
@@ -62,47 +63,57 @@ function FeatureCards() {
 
 const styles = {
   container: {
-    padding: "70px 40px",
+    padding: "80px 40px",
     textAlign: "center",
   },
 
   heading: {
-    fontSize: "34px",
-    marginBottom: "50px",
-    color: "#2f2f2f"
+    fontSize: "36px",
+    marginBottom: "60px",
+    color: "#2f2f2f",
+    letterSpacing: "1px"
   },
 
   cards: {
     display: "flex",
     justifyContent: "center",
-    gap: "35px",
+    gap: "40px",
     flexWrap: "wrap",
   },
 
   card: {
-    width: "280px",
-    padding: "30px",
-    borderRadius: "14px",
-    boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
-    background: "white",
-    transition: "0.25s",
+    width: "300px",
+    padding: "35px",
+    borderRadius: "18px",
+    backdropFilter: "blur(8px)",
+    background: "rgba(255,255,255,0.65)",
+
+    boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+
+    transition: "all 0.35s ease",
   },
 
   image: {
-    width: "250px",
-    marginBottom: "15px",
+    width: "95px",
+    marginBottom: "20px",
   },
 
   button: {
-    marginTop: "18px",
-    padding: "10px 20px",
+    marginTop: "20px",
+    padding: "11px 22px",
     border: "none",
-    backgroundColor: "#86793d",
+    borderRadius: "8px",
+    fontSize: "15px",
+    fontWeight: "500",
     color: "white",
     cursor: "pointer",
-    borderRadius: "6px",
-    fontSize: "14px",
-  },
+
+    background: "linear-gradient(135deg,#86793d,#b4a25a)",
+
+    boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+
+    transition: "all 0.3s ease"
+  }
 };
 
 export default FeatureCards;
