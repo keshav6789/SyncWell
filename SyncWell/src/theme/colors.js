@@ -1,5 +1,5 @@
 const colors = {
-  primary: "#4CAF50",     // health green
+  primary: "#92d4ee",     // health green
   secondary: "#6EC6FF",   // calm blue
   accent: "#FFD166",      // energy yellow
   background: "#F4F9F9",
