@@ -24,10 +24,10 @@ function Hero() {
           SyncWell helps you track your habits, improve mental wellness, and
           stay physically active with simple daily tracking tools.
         </p>
-
+{/* 
         <Link to="/tracker">
           <button style={styles.button}>Start Tracking</button>
-        </Link>
+        </Link> */}
       </div>
     </section>
   );
