@@ -8,7 +8,7 @@ function Home() {
   return (
     <main
       style={{
-        background: colors.background,
+        background: "transparent",
         color: colors.text,
         minHeight: "100vh",
         paddingBottom: "40px"
