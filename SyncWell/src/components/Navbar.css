@@ -1,21 +1,18 @@
 .nav-btn {
-  padding: 8px 14px;
-  background-color: #9a8c4a;
+  background-color: #22c55e;
   color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
   text-decoration: none;
-  border-radius: 6px;
-  font-size: 15px;
-  font-weight: 500;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  transition: all 0.25s ease;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .nav-btn:hover {
-  background-color: #b6a75c;
+  background-color: #16a34a;
   transform: translateY(-2px);
-  box-shadow: 0 5px 12px rgba(0,0,0,0.25);
 }
 
-.nav-btn:active {
-  transform: translateY(0px);
+.active-nav {
+  background-color: #15803d;
 }

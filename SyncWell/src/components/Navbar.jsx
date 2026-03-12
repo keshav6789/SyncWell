@@ -69,7 +69,8 @@ const styles = {
     alignItems: "center",
     padding: "16px 26px",
     borderRadius: "22px",
-    background: "linear-gradient(135deg, rgba(34,197,94,0.92), rgba(59,130,246,0.82))",
+    background:
+      "linear-gradient(135deg, rgba(34,197,94,0.92), rgba(59,130,246,0.82))",
     boxShadow: "0 14px 35px rgba(15, 23, 42, 0.18)",
     border: "1px solid rgba(255,255,255,0.25)",
   },
@@ -94,7 +95,6 @@ const styles = {
     fontWeight: "bold",
     boxShadow: "inset 0 1px 0 rgba(255,255,255,0.25)",
     border: "1px solid rgba(255,255,255,0.22)",
-    backdropFilter: "blur(8px)",
   },
 
   logo: {
@@ -102,23 +102,18 @@ const styles = {
     fontWeight: "800",
     color: "#ffffff",
     margin: 0,
-    lineHeight: 1,
-    letterSpacing: "0.4px",
   },
 
   tagline: {
     margin: "5px 0 0",
     color: "rgba(255,255,255,0.88)",
     fontSize: "13px",
-    letterSpacing: "0.3px",
   },
 
   navLinks: {
     display: "flex",
     gap: "14px",
     alignItems: "center",
-    flexWrap: "wrap",
-    justifyContent: "flex-end",
   },
 };
 
