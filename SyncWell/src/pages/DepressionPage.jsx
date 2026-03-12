@@ -32,7 +32,9 @@ function DepressionPage() {
             "Small routines such as getting sunlight, eating regularly, moving the body, and maintaining sleep can help support recovery.",
             "Reaching out early to trusted people can reduce isolation and make recovery more manageable."
           ]}
-          imageLabel="Add a depression-related image here later"
+          imageLabel="Add a depression-related video here later"
+          mediaType="video"
+          mediaSrc="/video/depressionIMG.mp4"
         />
       </div>
     </section>

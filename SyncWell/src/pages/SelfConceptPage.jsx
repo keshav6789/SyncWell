@@ -45,7 +45,9 @@ function SelfConceptPage() {
             "Set realistic goals.",
             "Practice positive self-talk."
           ]}
-          imageLabel="Add a self concept-related image here later"
+          imageLabel="Add a self concept-related video here later"
+          mediaType="video"
+          mediaSrc="/video/selfConceptBG.mp4"
         >
           <SelfConceptDiary />
         </MentalHealthArticlePage>
