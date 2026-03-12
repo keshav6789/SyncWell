@@ -1,5 +1,5 @@
 .nav-btn {
-  background-color: #22c55e;
+  background-color: #22c55e;   /* green */
   color: white;
   padding: 10px 20px;
   border-radius: 10px;
@@ -9,10 +9,11 @@
 }
 
 .nav-btn:hover {
-  background-color: #16a34a;
+  background-color: #16a34a;   /* hover green */
   transform: translateY(-2px);
 }
 
+/* Active page button */
 .active-nav {
-  background-color: #15803d;
+  background-color: #22c55e;   /* same green as others */
 }
